@@ -1,5 +1,3 @@
-create core app
-
 configure settings from the general file
 
 configure south migrations
