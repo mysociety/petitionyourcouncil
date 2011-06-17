@@ -14,7 +14,7 @@ package_dir = os.path.abspath(os.path.split(__file__)[0])
 
 paths = (
     os.path.normpath(package_dir + "/../../pylib"),
-    os.path.normpath(package_dir + "/../../pylib/pmc"),
+    os.path.normpath(package_dir + "/../../pylib/pyc"),
     os.path.normpath(package_dir + "/../../commonlib/pylib"),
     )
 
@@ -30,7 +30,7 @@ except ImportError:
     from mysociety import config
     config.set_file(os.path.abspath(package_dir + "/../../conf/general"))
 
-# Django settings for pmc project.
+# Django settings for pyc project.
 
 if int(config.get('STAGING')):
     DEBUG = True
@@ -109,7 +109,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'pmc.urls'
+ROOT_URLCONF = 'pyc.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
