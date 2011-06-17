@@ -1,5 +1,3 @@
-create django project
-
 create core app
 
 configure settings from the general file
