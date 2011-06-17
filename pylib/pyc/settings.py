@@ -47,11 +47,11 @@ MANAGERS = ADMINS
 
 # TODO - should we use 'django.contrib.gis.db.backends.postgis'?
 DATABASE_ENGINE   = 'postgresql_psycopg2'
-DATABASE_NAME     = config.get('PETITONYOURCOUNCIL_DB_NAME')
-DATABASE_USER     = config.get('PETITONYOURCOUNCIL_DB_USER')
-DATABASE_PASSWORD = config.get('PETITONYOURCOUNCIL_DB_PASS')
-DATABASE_HOST     = config.get('PETITONYOURCOUNCIL_DB_HOST')
-DATABASE_PORT     = config.get('PETITONYOURCOUNCIL_DB_PORT')
+DATABASE_NAME     = config.get('PETITIONYOURCOUNCIL_DB_NAME')
+DATABASE_USER     = config.get('PETITIONYOURCOUNCIL_DB_USER')
+DATABASE_PASSWORD = config.get('PETITIONYOURCOUNCIL_DB_PASS')
+DATABASE_HOST     = config.get('PETITIONYOURCOUNCIL_DB_HOST')
+DATABASE_PORT     = config.get('PETITIONYOURCOUNCIL_DB_PORT')
 
 # use this so that the test database is gis enabled
 TEST_RUNNER='django.contrib.gis.tests.run_tests'
@@ -127,6 +127,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'south',
+    
+    'core',
 )
 
 SRID = 4326      # WGS84, the coordinate system used by the geodjango calculations 

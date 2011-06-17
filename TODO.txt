@@ -1,5 +1,3 @@
-configure south migrations
-
 create model to represent councils
     slug
     name
