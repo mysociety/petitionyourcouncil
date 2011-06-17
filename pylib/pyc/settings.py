@@ -1,15 +1,10 @@
-# configure logging
-
+import os
+import sys
 import logging
-logging.basicConfig(
-    level = logging.DEBUG,
-    format = '%(asctime)s %(levelname)s %(message)s',
-)
+
 
 # Some special mysociety preamble in order to get hold of our config
 # file conf/general
-import os
-import sys
 package_dir = os.path.abspath(os.path.split(__file__)[0])
 
 paths = (
@@ -21,6 +16,9 @@ paths = (
 for path in paths:
     if path not in sys.path:
         sys.path.append(path)
+
+# this is bizarely self referential but there you go
+os.environ['DJANGO_SETTINGS_MODULE'] ='pyc.settings'
 
 try:
     from config_local import config  # put settings in config_local if you're not running in a fill mysociety vhost
@@ -36,6 +34,18 @@ if int(config.get('STAGING')):
     DEBUG = True
 else:
     DEBUG = False
+
+# configure logging
+if DEBUG:
+    logging.basicConfig(
+        level = logging.DEBUG,
+        format = '%(asctime)s %(levelname)s %(message)s',
+    )
+else:
+    logging.basicConfig(
+        level = logging.WARN,
+        format = '%(asctime)s %(levelname)s %(message)s',
+    )
 
 TEMPLATE_DEBUG = DEBUG
 
