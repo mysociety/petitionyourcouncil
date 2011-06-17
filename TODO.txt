@@ -1,0 +1,41 @@
+create django project
+
+create core app
+
+configure settings from the general file
+
+configure south migrations
+
+create model to represent councils
+    slug
+    name
+    petition_url
+    petition_rss
+
+populate the councils from ???
+
+search box for postcode
+
+convert postcode to council(s) that cover it (mapit)
+
+create model to represent petitions
+
+import petitions from rss link(s)
+
+link petitions to the councils they apply to (identify by permalink?)
+
+find petitions for each council and display to user
+
+
+fill display with a single large map
+
+put content on top of the map
+
+display petitions on background map (popup and scroll)
+
+
+
+--- LATER ---
+
+gather url of council petiton site if one not found in our system. Email someone to have it checked out.
+
