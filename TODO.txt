@@ -1,9 +1,3 @@
-create model to represent councils
-    slug
-    name
-    petition_url
-    petition_rss
-
 populate the councils from ???
 
 search box for postcode
