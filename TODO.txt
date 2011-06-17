@@ -1,5 +1,3 @@
-configure settings from the general file
-
 configure south migrations
 
 create model to represent councils

@@ -1,6 +1,42 @@
+# configure logging
+
+import logging
+logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(asctime)s %(levelname)s %(message)s',
+)
+
+# Some special mysociety preamble in order to get hold of our config
+# file conf/general
+import os
+import sys
+package_dir = os.path.abspath(os.path.split(__file__)[0])
+
+paths = (
+    os.path.normpath(package_dir + "/../../pylib"),
+    os.path.normpath(package_dir + "/../../pylib/pmc"),
+    os.path.normpath(package_dir + "/../../commonlib/pylib"),
+    )
+
+for path in paths:
+    if path not in sys.path:
+        sys.path.append(path)
+
+try:
+    from config_local import config  # put settings in config_local if you're not running in a fill mysociety vhost
+    SERVE_STATIC_FILES = True
+except ImportError:
+    SERVE_STATIC_FILES = False
+    from mysociety import config
+    config.set_file(os.path.abspath(package_dir + "/../../conf/general"))
+
 # Django settings for pmc project.
 
-DEBUG = True
+if int(config.get('STAGING')):
+    DEBUG = True
+else:
+    DEBUG = False
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -9,29 +45,27 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+# TODO - should we use 'django.contrib.gis.db.backends.postgis'?
+DATABASE_ENGINE   = 'postgresql_psycopg2'
+DATABASE_NAME     = config.get('PETITONYOURCOUNCIL_DB_NAME')
+DATABASE_USER     = config.get('PETITONYOURCOUNCIL_DB_USER')
+DATABASE_PASSWORD = config.get('PETITONYOURCOUNCIL_DB_PASS')
+DATABASE_HOST     = config.get('PETITONYOURCOUNCIL_DB_HOST')
+DATABASE_PORT     = config.get('PETITONYOURCOUNCIL_DB_PORT')
+
+# use this so that the test database is gis enabled
+TEST_RUNNER='django.contrib.gis.tests.run_tests'
+
+# a postGIS template, e.g.: http://docs.djangoproject.com/en/dev/ref/contrib/gis/install/#creating-a-spatial-database-template-for-postgis
+POSTGIS_TEMPLATE = 'template_postgis'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/London'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-GB'
 
 SITE_ID = 1
 
@@ -58,7 +92,7 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '&5lbnaf9+yu+171+@7_rq9^6go7yp&pu2a#aceip=3*j54c1*+'
+SECRET_KEY = config.get('DJANGO_SECRET_KEY')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -89,8 +123,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+
+    'django.contrib.admin',
+
+    'south',
 )
+
+SRID = 4326      # WGS84, the coordinate system used by the geodjango calculations 
