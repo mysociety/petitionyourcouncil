@@ -3,12 +3,11 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Example:
-    # (r'^pyc/', include('pyc.foo.urls')),
+urlpatterns = patterns('pyc.core.views',
+    (r'^$',        'index'  ),
+    (r'^search/$', 'search' ),
+)
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
+urlpatterns += patterns('',
     (r'^admin/', include(admin.site.urls)),
 )

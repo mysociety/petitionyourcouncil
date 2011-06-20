@@ -1,5 +1,3 @@
-search box for postcode
-
 convert postcode to council(s) that cover it (mapit)
 
 create model to represent petitions
