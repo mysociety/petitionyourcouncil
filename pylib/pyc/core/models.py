@@ -20,4 +20,3 @@ class Council(models.Model):
 class CouncilAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
-admin.site.register(Council, CouncilAdmin)
