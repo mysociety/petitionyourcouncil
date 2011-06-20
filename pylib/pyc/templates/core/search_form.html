@@ -3,6 +3,10 @@
     <label for="search_query">Postcode</label>
     <input id="search_query" type="text" name="q" value="{% firstof q '' %}" />
     <input type="submit" value="Search" />
+
+    Eg: <a href="{% url core.views.search %}?q=SW1A1AA">SW1A 1AA</a>
+    or <a href="{% url core.views.search %}?q=GL502PR">GL50 2PR</a>
+
     
 </form>
     

@@ -148,3 +148,5 @@ INSTALLED_APPS = (
 )
 
 SRID = 4326      # WGS84, the coordinate system used by the geodjango calculations 
+
+MAPIT_URL = config.get('MAPIT_URL')

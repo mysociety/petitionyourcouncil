@@ -6,4 +6,9 @@
 
 {% include 'core/search_form.html' %}
 
+{% for council in object_list %}
+    {{ council.name }}
+{% endfor %}
+
+
 {% endblock %}
