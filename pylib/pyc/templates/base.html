@@ -1,13 +1,68 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
     <head>
-        <title>{% block title%}{% endblock %} - PetitionYourCouncil.com</title>
+        <title>{% block title %}{% endblock %} :: PetitionYourCouncil.com</title>
+
+        {% block extra_head_tags %}{% endblock %}
+        
+        <link rel="stylesheet" href="/static/css/main.css" type="text/css" media="screen" charset="utf-8">
+        <!--[if IE 6]>
+            <link rel="stylesheet" href="/static/css/ie6.css" type="text/css" media="screen" charset="utf-8">
+        <![endif]-->
+        
+        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script> -->
+        <!-- <script src="/static/js/main.js" type="text/javascript" charset="utf-8"></script> -->
+        
     </head>
     <body>
 
-        {% block content %}
-            Content goes here
-        {% endblock %}
+        <div id="background_map">
+        
+        <div id="dev-site-warning">
+            <p>This is a beta site - there may be some small glitches and issues.</p>
+            <p>There are features yet to add - please see the <a href="/todo">TODO list</a></p>
+        </div>
+
+        <div id="outer_wrapper">
+            <div id="inner_wrapper">
+        
+                <div id="menu">
+                    <a id="logo" href="{% url core.views.index %}">
+                        PetitionYourCouncil.com
+                    </a>
+
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                    </ul>
+
+                    <br clear="both" />
+                </div>
+                
+                <div id="content">
+                    {% block content %}
+                        Replace this with proper content.
+                    {% endblock %}    
+                    <br clear="both" />
+                </div>
+                
+                <div id="footer">
+                    <a id="mysociety_logo" href="http://www.mysociety.org" title="Built by mySociety">
+                        <img src="/static/mysociety_small.png" alt="mySociety" />
+                    </a>
+
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                    </ul>
+                    
+                    <br clear="both">
+
+                </div>
+            </div>
+        </div>
 
     </body>
 </html>

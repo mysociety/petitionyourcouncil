@@ -1,0 +1,167 @@
+$ukonline_blue: #003d76;
+$ukonline_red: #dd1a0b;
+
+$serif:       "Palatino", "Palatino Linotype", serif;
+$sans:        "Arial", sans-serif;
+$promo_serif: "Goudy Bookletter 1911", Georgia, arial, serif;
+
+body {
+    margin:0; 
+    padding:0;
+    font-family: $serif;
+    background-color: #233e11; /* FIXME - set correctly for map */
+}
+
+#background_map {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+}
+
+/* places the content ontop of the background image */
+#outer_wrapper {
+    position:relative;
+    margin: 0 auto;
+    padding: 0;
+    z-index:1;
+}
+
+#inner_wrapper {
+    background-color: rgba( 255,255,255, 0.7);
+    margin: 60px auto;
+    min-width: 600px;
+    max-width: 800px;
+    border: 1px solid #fff;
+    padding: 20px 20px 0 20px;
+}
+
+#dev-site-warning {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    padding: 2px;
+    background: rgba( 255,128,128, 0.7);
+    
+    p {
+        color: #000;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-size: 75%;
+        font-family: $sans;
+        a { color: inherit; }
+    }
+}
+
+#menu {
+    border-bottom: 1px solid rgba( 0,0,0, 0.2 );
+
+    #logo {
+        float: left;
+    }
+
+    ul {
+        margin: 0;
+        float: right;
+        clear: right;
+        
+        li {
+            list-style: none;
+        }
+    }
+}
+
+#content {
+    padding: 1em 0;
+}
+
+#footer {
+    border-top: 1px solid rgba( 0,0,0, 0.2 );
+    font-family: $sans;
+    font-size: 80%;
+    color: #444;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        
+        li {
+            display: block;
+            float: left;
+            list-style: none;
+            padding-right: 1em;
+
+            a { color: inherit; }
+            a:hover { color: #00f; }
+        }
+    }    
+}
+
+#mysociety_logo {
+    float: right;
+}
+
+$label_width: 8em;
+
+/* form related */
+form.standard {
+    margin: 1em 0;
+    p {
+        margin: 0.5em 0;
+    }
+    
+    font-family: $sans;
+
+    label {
+        display: inline-block;
+        width: $label_width;
+        margin-right: 0.5em;
+        text-align: right;
+        vertical-align: top;
+    }
+}
+
+ul.errorlist {
+    color: #f00;
+    margin: 0;
+    padding: 0;
+    padding-left: $label_width + 1em;
+
+    li {
+        list-style: none;
+        font-size: 90%;
+        position: relative;
+        top: 7px;   /* nasty hack to put the error closer to the related field */
+    }
+}
+
+ul.plain {
+    li {
+        list-style: none;
+        img { vertical-align: middle; }
+    }
+}
+
+
+
+
+div.pagination {
+    
+    text-align: center;
+    background-color: rgba( 255,255,255, 0.3);
+    border: 1px solid rgba( 255,255,255, 0.3);
+    border-width: 1px 0;
+
+    img {
+        vertical-align: middle;
+    }
+
+    .previous_buttons, .next_buttons {
+        display: inline-block;
+        min-width: 40px;
+    }
+}
