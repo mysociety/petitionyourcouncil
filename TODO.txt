@@ -1,8 +1,6 @@
-strip off nav gubbins from map and disable dragging etc
-
 cope with the page being resized
 
-
+tidy up CSS
 
 add Google Analytics
 

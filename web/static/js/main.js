@@ -11,14 +11,24 @@ function initialize_map_cb() {
         position: 'fixed'
     })
 
-  var myLatlng = new google.maps.LatLng(-34.397, 150.644);
+  var myLatlng = new google.maps.LatLng( 54, -4 );
 
   var map = new google.maps.Map(
       document.getElementById("background_map"),
       {
-          zoom: 8,
+          zoom: 6,
           center: myLatlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+
+          // use the roadmap as it is probably clearest
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+          // try to make the map as static as possible - it is not meant to
+          // become a distraction
+          disableDefaultUI:       true,
+          disableDoubleClickZoom: true,
+          draggable:              false,
+          keyboardShortcuts:      false,
+          scrollwheel:            false
       }
   );
 
