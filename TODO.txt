@@ -1,8 +1,7 @@
-highlight council area on council result page
 
 wording if a council has/has not a petitions site
 
-
+stop map flicker for council pages - perhaps by loading map with the correct bounds.
 
 add google analytics
 

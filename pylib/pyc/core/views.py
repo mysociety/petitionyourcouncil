@@ -45,7 +45,10 @@ def search(request):
             "Could not load some councils from db for pc '%s': %s" % ( q, council_id_list )
         )
 
-
+    # If we've only found one result then go straight there
+    if qs.count() == 1:
+        return redirect( council, slug=qs[0].slug )
+        
     return object_list(
         request,
         queryset      = qs,
