@@ -1,3 +1,12 @@
+fill background with a single large map
+
+float content on top of the map
+
+add Google Analytics
+
+
+--- individual petitons ---
+
 create model to represent petitions
 
 import petitions from rss link(s)
@@ -6,16 +15,13 @@ link petitions to the councils they apply to (identify by permalink?)
 
 find petitions for each council and display to user
 
-
-fill display with a single large map
-
-put content on top of the map
-
-display petitions on background map (popup and scroll)
-
+display petitions on background map (popup and scroll) - perhaps not as background but rather as a 'live' page?
 
 
 --- LATER ---
 
-gather url of council petiton site if one not found in our system. Email someone to have it checked out.
+gather url of council petiton site if one not found in our system. Email someone
+to have it checked out.
 
+gather email addresses of people who want there to be petitions in this council
+so we can inform them when they become available.
