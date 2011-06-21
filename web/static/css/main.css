@@ -15,7 +15,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #99b3cc; }
+  background-color: #99b3cc;
+  opacity: 0.5; }
 
 #dev-site-warning {
   z-index: 1;
