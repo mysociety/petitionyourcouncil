@@ -34,6 +34,7 @@ function initialize_map_cb() {
         
             // use the roadmap as it is probably clearest
             mapTypeId: google.maps.MapTypeId.ROADMAP,
+            backgroundColor: '99b3cc',
         
             // try to make the map as static as possible - it is not meant to
             // become a distraction

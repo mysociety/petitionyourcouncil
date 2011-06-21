@@ -1,29 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Palatino", "Palatino Linotype", serif;
-  background-color: blue; }
+  font-family: "Arial", sans-serif;
+  background-color: #99b3cc; }
 
 #background_map {
   position: fixed;
   top: 0;
   left: 0;
-  /*    background-color: teal;*/ }
-
-/* places the content ontop of the background image */
-#outer_wrapper {
-  position: relative;
-  margin: 0 auto;
-  padding: 0;
-  z-index: 1; }
-
-#inner_wrapper {
-  background-color: rgba(255, 255, 255, 0.7);
-  margin: 60px auto;
-  min-width: 600px;
-  max-width: 800px;
-  border: 1px solid #fff;
-  padding: 20px 20px 0 20px; }
+  background-color: #99b3cc; }
 
 #dev-site-warning {
   z-index: 1;
@@ -42,92 +27,20 @@ body {
     #dev-site-warning p a {
       color: inherit; }
 
-#menu {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
-  #menu #logo {
-    float: left; }
-  #menu ul {
-    margin: 0;
-    float: right;
-    clear: right; }
-    #menu ul li {
-      list-style: none; }
-
 #content {
-  padding: 1em 0; }
-
-#footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  font-family: "Arial", sans-serif;
-  font-size: 80%;
-  color: #444; }
-  #footer ul {
-    margin: 0;
-    padding: 0; }
-    #footer ul li {
-      display: block;
-      float: left;
-      list-style: none;
-      padding-right: 1em; }
-      #footer ul li a {
-        color: inherit; }
-      #footer ul li a:hover {
-        color: #00f; }
-
-#mysociety_logo {
-  float: right; }
-
-/* form related */
-form.standard {
-  margin: 1em 0;
-  font-family: "Arial", sans-serif; }
-  form.standard p {
-    margin: 0.5em 0; }
-  form.standard label {
-    display: inline-block;
-    width: 8em;
-    margin-right: 0.5em;
-    text-align: right;
-    vertical-align: top; }
-
-ul.errorlist {
-  color: #f00;
-  margin: 0;
-  padding: 0;
-  padding-left: 9em; }
-  ul.errorlist li {
-    list-style: none;
-    font-size: 90%;
-    position: relative;
-    top: 7px;
-    /* nasty hack to put the error closer to the related field */ }
-
-ul.plain li {
-  list-style: none; }
-  ul.plain li img {
-    vertical-align: middle; }
-
-div.pagination {
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-width: 1px 0; }
-  div.pagination img {
-    vertical-align: middle; }
-  div.pagination .previous_buttons, div.pagination .next_buttons {
-    display: inline-block;
-    min-width: 40px; }
-
-#homepage_search_form {
   position: fixed;
   top: 60px;
   left: 25%;
   width: 50%;
-  background: white;
+  background: #f5f7fa;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid gray;
-  border-color: 1px solid rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 6px #444444;
+  -webkit-box-shadow: 1px 1px 6px #444444;
+  box-shadow: 1px 1px 6px #444444;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
   text-align: center; }
-  #homepage_search_form form {
+  #content form {
     padding: 2em;
     text-align: center; }

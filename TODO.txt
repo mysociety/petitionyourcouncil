@@ -1,6 +1,10 @@
-tidy up CSS
+format home page
 
-add Google Analytics
+format search results
+
+format individual council page
+
+add google analytics
 
 
 --- individual petitons ---
@@ -16,9 +20,9 @@ find petitions for each council and display to user
 display petitions on background map (popup and scroll) - perhaps not as background but rather as a 'live' page?
 
 
---- LATER ---
+--- later ---
 
-gather url of council petition site if one not found in our system. Email
+gather url of council petition site if one not found in our system. email
 someone to have it checked out.
 
 gather email addresses of people who want there to be petitions in this council
