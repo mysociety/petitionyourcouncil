@@ -1,6 +1,7 @@
 
 function PYC () {
     this.map            = false;
+    this.council_ids    = [];
     
     this.init = function () {
         this.resize_background_map();
@@ -56,7 +57,27 @@ function PYC () {
             document.getElementById("background_map"),
             options
         );
+        
+        // if there are councils then show them on the map
+        if ( this.council_ids.length ) {
+            var id = this.council_ids[0];
+            var url = 'http://mapit.mysociety.org/area/' + id + '.kml';
+
+            var kml = new google.maps.KmlLayer(
+                url,
+                {
+                    map: this.map
+                }
+            );
+        }
+        
     };
+
+    this.add_council_by_mapit_id = function ( id ) {
+        this.council_ids.push( id );
+    };
+
+
     
 };
 
