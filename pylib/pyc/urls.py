@@ -6,8 +6,9 @@ import settings
 admin.autodiscover()
 
 urlpatterns = patterns('pyc.core.views',
-    (r'^$',        'index'  ),
-    (r'^search/$', 'search' ),
+    (r'^$',                          'index'   ),
+    (r'^search/$',                   'search'  ),
+    (r'^council/(?P<slug>.*?)/$',    'council' ),
 )
 
 urlpatterns += patterns('',

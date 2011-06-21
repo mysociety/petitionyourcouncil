@@ -1,6 +1,8 @@
-format search results
+highlight council area on council result page
 
-format individual council page
+wording if a council has/has not a petitions site
+
+
 
 add google analytics
 
