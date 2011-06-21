@@ -10,4 +10,22 @@
     pyc.add_council_by_mapit_id( {{ council.mapit_id }} );
 </script>
 
+{% if council.petition_url %}
+
+<p>Hurrah!</p>
+
+<p>{{ council.name }} has an online petitions site that you can access
+using the link below:</p>
+
+<p><a href="{{ council.petition_url }}">Petition Website</a></p>
+
+{% else %}
+
+<p>Bad news!</p>
+
+<p>{{ council.name }} does not have a petitions website so you can't make an
+online petition directly to them.</p>
+
+{% endif %}
+
 {% endblock %}

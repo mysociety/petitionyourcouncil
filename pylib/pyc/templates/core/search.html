@@ -6,17 +6,11 @@
 
 <h2>Councils covering '{{ q }}'</h2>
 
-<br/>
-<br/>
-
 {% for council in object_list %}
     <p>
         <a href="{% url core.views.council slug=council.slug %}">{{ council.name }}</a>
     </p>
 {% endfor %}
-
-<br/>
-<br/>
 
 <form action="{% url core.views.search %}">
     <input id="search_query" type="text" name="q" value="{{ q }}" />
