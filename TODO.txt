@@ -1,5 +1,3 @@
-cope with the page being resized
-
 tidy up CSS
 
 add Google Analytics
