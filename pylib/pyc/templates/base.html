@@ -11,8 +11,9 @@
         <![endif]-->
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript" ></script>
         <script src="/static/js/main.js" type="text/javascript" charset="utf-8"></script>
-        
+
     </head>
     <body>
 
@@ -23,10 +24,6 @@
         <div id="dev-site-warning">
             <p>This is a beta site - there may be some small glitches and issues.</p>
         </div>
-
-        <script type="text/javascript" charset="utf-8">
-            load_background_map();
-        </script>
 
         <div id="content">
         {% block content %}
