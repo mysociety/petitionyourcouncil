@@ -4,6 +4,12 @@
 
 {% block content %}
 
-{% include 'core/search_form.html' %}
+<script type="text/javascript" charset="utf-8">
+    load_background_map();
+</script>
+
+<div id="homepage_search_form">
+    {% include 'core/search_form.html' %}
+</div>
 
 {% endblock %}

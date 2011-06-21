@@ -1,6 +1,8 @@
-fill background with a single large map
+strip off nav gubbins from map and disable dragging etc
 
-float content on top of the map
+cope with the page being resized
+
+
 
 add Google Analytics
 

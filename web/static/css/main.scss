@@ -9,15 +9,14 @@ body {
     margin:0; 
     padding:0;
     font-family: $serif;
-    background-color: #233e11; /* FIXME - set correctly for map */
+    background-color: blue;
 }
 
 #background_map {
     position: fixed;
     top: 0;
     left: 0;
-    width:100%;
-    height: 100%;
+/*    background-color: teal;*/
 }
 
 /* places the content ontop of the background image */
@@ -41,7 +40,7 @@ body {
     z-index: 1;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     
     padding: 2px;
     background: rgba( 255,128,128, 0.7);
@@ -146,9 +145,6 @@ ul.plain {
     }
 }
 
-
-
-
 div.pagination {
     
     text-align: center;
@@ -165,3 +161,22 @@ div.pagination {
         min-width: 40px;
     }
 }
+
+#homepage_search_form {
+    position: fixed;
+    top: 60px;
+    left: 25%;
+    width: 50%;
+    background: rgb(255,255,255);
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgb(128,128,128);
+    border-color: 1px solid rgba(0,0,0,0.5);
+
+    text-align: center;
+
+    form {
+        padding: 2em;
+        text-align: center;
+    }
+}
+
