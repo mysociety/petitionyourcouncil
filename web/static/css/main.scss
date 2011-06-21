@@ -5,15 +5,20 @@ $sans:        "Arial", sans-serif;
 $promo_serif: "Goudy Bookletter 1911", Georgia, arial, serif;
 
 @mixin roundedCorners ( $radius ) {
-    -moz-border-radius: $radius;
+    -moz-border-radius:    $radius;
     -webkit-border-radius: $radius;
-    border-radius: $radius;
+    border-radius:         $radius;
 }
 
 @mixin boxShadow( $h, $w, $blur, $color ) { 
     -moz-box-shadow:    $h $w $blur $color; 
     -webkit-box-shadow: $h $w $blur $color; 
     box-shadow:         $h $w $blur $color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -62,11 +67,14 @@ body {
     @include roundedCorners( 8px );
 
     text-align: center;
+    padding: 1em;
 
-    form {
-        padding: 2em;
-        text-align: center;
-    }
 }
 
+#homepage_search {
+    input {
+        font-size: 200%;
+        text-align: center;
+    }
 
+}

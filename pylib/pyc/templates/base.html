@@ -16,11 +16,17 @@
     </head>
     <body>
 
-        <div id="background_map"></div>
+        <div id="background_map">
+            <noscript>To see map please enable JavaScript</noscript>
+        </div>
         
         <div id="dev-site-warning">
             <p>This is a beta site - there may be some small glitches and issues.</p>
         </div>
+
+        <script type="text/javascript" charset="utf-8">
+            load_background_map();
+        </script>
 
         <div id="content">
         {% block content %}
