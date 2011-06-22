@@ -26,8 +26,8 @@ data = json.loads(content)
 
 for id in data:
     entry = data[id]
-    logging.debug( "Looking at %s (%s)" % ( id, str(entry) ) )
 
+    logging.debug( "Looking at %s (%s)" % ( id, str(entry['name']) ) )
 
     name = entry['name']
     slug = re.sub( '[^a-z]+', '-', name.lower() )
