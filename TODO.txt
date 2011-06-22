@@ -1,13 +1,21 @@
 
 --- needed for launch ---
 
+put site up on ms servers for others to review
+
 Add admin facility to check councils that do not have petitions. Track when last checked and show list of those that need checking. Google search to kick start process.
 
-add google analytics
+Add google analytics
 
-stop map flicker for council pages - perhaps by loading map with the correct bounds.
+Stop map flicker for council pages - perhaps by loading map with the correct bounds.
 
---- individual petitons ---
+List of councils on a page so that search engines can access them.
+
+SEO wording so that we come high up
+
+Social - retweet and like on Facebook
+
+--- individual petitions ---
 
 create model to represent petitions
 
