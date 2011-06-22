@@ -1,0 +1,27 @@
+# Apache configuration.
+#
+# Copyright (c) 20010 UK Citizens Online Democracy. All rights reserved.
+# Email: duncan@mysociety.org; WWW: http://www.mysociety.org
+
+# This kind of thing would be needed if we wanted a password.
+
+<Location />
+    AuthType Basic
+    AuthName "Private beta I'm afraid."
+    AuthUserFile petitionyourcouncil-htpasswd
+    Require valid-user
+    Order deny,allow
+    Deny from all
+    Satisfy any
+</Location>
+
+Alias /media /var/lib/python-support/python2.5/django/contrib/admin/media
+Alias /static /data/vhost/example.petitionyourcouncil.mysociety.org/docs/static
+
+WSGIDaemonProcess example.petitionyourcouncil.mysociety.org user=exampleuser group=examplegroup processes=5 threads=1 display-name=example.petitionyourcouncil.mysociety.org
+WSGIProcessGroup example.petitionyourcouncil.mysociety.org
+
+WSGIScriptAlias / /data/vhost/example.petitionyourcouncil.mysociety.org/petitionyourcouncil/wsgi/django.wsgi
+
+
+
