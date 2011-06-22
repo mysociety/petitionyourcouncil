@@ -66,7 +66,9 @@ function PYC () {
             var kml = new google.maps.KmlLayer(
                 url,
                 {
-                    map: this.map
+                    map: this.map,
+                    clickable: false,
+                    suppressInfoWindows: true
                 }
             );
         }
