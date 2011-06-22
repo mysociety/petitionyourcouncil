@@ -24,19 +24,20 @@ def list_missing_sites(request):
 
     return object_list(
         request,
-        queryset=Council.missing_petitons(),
+        queryset=Council.missing_petitons_qs(),
         template_name='core/admin/list_missing_sites.html',
     )
 
 @staff_member_required
 def next_missing_site( request ):
-    """Redirect to the next missing site"""
+    """Redirect to the next missing site, or back to list page"""
 
-    # work out the next missing id
-    council_id = Council.next_missing_petition().id
+    council = Council.next_to_check()
     
-    # redirect to it
-    return redirect( do_missing_site, council_id=council_id )
+    if council:
+        return redirect( do_missing_site, council_id=council.id )
+    else:
+        return redirect( list_missing_sites )
 
 @staff_member_required
 def do_missing_site( request, council_id ):

@@ -1,4 +1,5 @@
 from django.contrib.gis.db import models
+from django.contrib.gis.db.models import Q
 from django.contrib import admin
 
 from datetime import datetime, timedelta
@@ -17,26 +18,31 @@ class Council(models.Model):
     defer_check_until = models.DateTimeField(null=True)
 
     @classmethod
-    def missing_petitons(cls):
-        # checked_before = datetime.now() - timedelta(days=28)
+    def missing_petitons_qs(cls):
         return (
             cls
                 .objects
                 .filter( petition_url='' )
-                # .filter( last_checked__lte=checked_before )
                 .order_by( 'last_checked', 'slug' )
         )
-    
-    # @classmethod
-    # def need_checking(cls):
-    #     checked_before = datetime.now() - timedelta(days=28)
-    #     return (
-    #         cls
-    #             .objects
-    #             .filter( petition_url='' )
-    #             .filter( last_checked__lte=checked_before )
-    #             .order_by( 'last_checked', 'slug' )
-    #     )
+
+    @classmethod
+    def to_check_qs(cls):
+        checked_before = datetime.now() - timedelta(days=28)
+        return (
+            cls
+                .missing_petitons_qs()
+                .filter( Q(last_checked__lte=checked_before) | Q(last_checked__isnull=True) )
+        )
+
+    @classmethod
+    def next_to_check(cls):
+        """Return the next council that needs to be checked"""
+        qs = cls.to_check_qs()
+        try:
+            return qs[0]
+        except IndexError:
+            return None
 
     def __unicode__(self):
         return self.name
