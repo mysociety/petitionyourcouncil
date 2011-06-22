@@ -10,6 +10,10 @@
     <p>
         <a href="{% url core.views.council slug=council.slug %}">{{ council.name }}</a>
     </p>
+{% empty %}
+    <p>
+        No councils were found for '{{ q }}' - is it a valid postcode?
+    </p>
 {% endfor %}
 
 <form action="{% url core.views.search %}">
