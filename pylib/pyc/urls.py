@@ -11,6 +11,12 @@ urlpatterns = patterns('pyc.core.views',
     (r'^council/(?P<slug>.*?)/$',    'council' ),
 )
 
+urlpatterns += patterns('pyc.core.admin_views',
+    (r'^admin/core/find_missing_sites/next/',                'next_missing_site'  ),
+    (r'^admin/core/find_missing_sites/(?P<council_id>\d+)/', 'do_missing_site'    ),
+    (r'^admin/core/find_missing_sites/',                     'list_missing_sites' ),
+)
+
 urlpatterns += patterns('',
     (r'^admin/', include(admin.site.urls)),
 )

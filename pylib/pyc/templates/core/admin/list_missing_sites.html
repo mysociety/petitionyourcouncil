@@ -1,0 +1,26 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n adminmedia %}
+
+{% block title %}Find missing sites{% endblock %}
+
+{% block content %}
+
+<h1>Find missing sites</h1>
+
+<p>
+    This page will show you sites which do not have a petition set and that have
+    not been checked recently. For each site please follow the google search and
+    see if you can find an online petitions url and feed.
+</p>
+
+
+<ul>
+{% for object in object_list %}
+    <li><a href="{% url core.admin_views.do_missing_site council_id=object.id %}">{{ object }}</a></li>
+{% empty %}
+    <li>There are no councils that need to be checked</li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}
