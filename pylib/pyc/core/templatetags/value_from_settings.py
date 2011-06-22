@@ -25,6 +25,4 @@ class SettingNode ( template.Node ):
         self.option = option
 
     def render ( self, context ): 
-        print dir(settings)
-        print settings.GOOGLE_ANALYTICS_ACCOUNT
         return str( getattr(settings, self.option) )
