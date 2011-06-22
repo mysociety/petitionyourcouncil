@@ -17,9 +17,6 @@ for path in paths:
     if path not in sys.path:
         sys.path.append(path)
 
-# this is bizarely self referential but there you go
-os.environ['DJANGO_SETTINGS_MODULE'] ='pyc.settings'
-
 try:
     from config_local import config  # put settings in config_local if you're not running in a fill mysociety vhost
     SERVE_STATIC_FILES = True
@@ -138,9 +135,9 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    # 'django.contrib.messages',
-
+    # 'django.contrib.messages', # uncomment for django >= 1.2
     'django.contrib.admin',
+    'django.contrib.gis',
 
     'south',
     
@@ -150,3 +147,10 @@ INSTALLED_APPS = (
 SRID = 4326      # WGS84, the coordinate system used by the geodjango calculations 
 
 MAPIT_URL = config.get('MAPIT_URL')
+
+
+# select the approriate google analytics key based on STAGING
+if int(config.get('STAGING')):
+    GOOGLE_ANALYTICS_ACCOUNT = config.get('GOOGLE_ANALYTICS_ACCOUNT_STAGE')
+else:
+    GOOGLE_ANALYTICS_ACCOUNT = config.get('GOOGLE_ANALYTICS_ACCOUNT_LIVE')
