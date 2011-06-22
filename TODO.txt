@@ -1,7 +1,7 @@
 
 --- needed for launch ---
 
-Add admin facility to check councils that do not have petitions. Track when last checked and show list of those that need checking. Google search to kick start process.
+link to petition admin section
 
 Stop map flicker for council pages - perhaps by loading map with the correct bounds.
 
@@ -33,3 +33,5 @@ someone to have it checked out.
 
 gather email addresses of people who want there to be petitions in this council
 so we can inform them when they become available.
+
+Add parliamentary level petitions? eg: http://www.scottish.parliament.uk/s3/committees/petitions/index.htm

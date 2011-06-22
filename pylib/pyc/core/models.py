@@ -11,11 +11,21 @@ class Council(models.Model):
     name         = models.CharField(max_length=200)
     mapit_id     = models.IntegerField(unique=True)
     mapit_type   = models.CharField(max_length=3)
-    petition_url = models.URLField(verify_exists=False, blank=True )
-    petition_rss = models.URLField(verify_exists=False, blank=True )
+    petition_url = models.URLField(verify_exists=True, blank=True )
+    petition_rss = models.URLField(verify_exists=True, blank=True )
     
     last_checked      = models.DateTimeField(null=True)
     defer_check_until = models.DateTimeField(null=True)
+
+    def bump_defer_check_until(self):
+        self.defer_check_until = datetime.now() + timedelta(minutes=10)
+        self.save()    
+        return True
+
+    def bump_last_checked(self):
+        self.last_checked = datetime.now()
+        self.save()    
+        return True
 
     @classmethod
     def missing_petitons_qs(cls):
@@ -28,11 +38,15 @@ class Council(models.Model):
 
     @classmethod
     def to_check_qs(cls):
-        checked_before = datetime.now() - timedelta(days=28)
+
+        now            = datetime.now()
+        checked_before = now - timedelta(days=28)
+
         return (
             cls
                 .missing_petitons_qs()
                 .filter( Q(last_checked__lte=checked_before) | Q(last_checked__isnull=True) )
+                .filter( Q(defer_check_until__lte=now)       | Q(defer_check_until__isnull=True) )
         )
 
     @classmethod

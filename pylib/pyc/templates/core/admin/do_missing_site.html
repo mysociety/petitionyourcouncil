@@ -1,0 +1,32 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n adminmedia %}
+
+{% block title %}Find petitions for '{{ council.name }}'{% endblock %}
+
+{% block content %}
+
+<h1>Find petitions for '{{ council.name }}'</h1>
+
+<p>
+    Please find the petitions site and feed for this council.
+</p>
+
+<p>
+    You probably want to use  a google search for <a href="http://www.google.co.uk/search?q={{ council.name }}">"{{ council.name }}"</a>
+</p>
+
+<p>
+    Note - don't save the form <a href="{% url core.admin_views.next_missing_site %}">if you just want to skip to the next missing site</a>.
+</p>
+
+<form action="" method="post">
+
+    {{ form.as_p }}
+
+    <label for="form_submit">&nbsp;</label>
+    <input type="submit" id="form_submit" value="Save petition site details" />
+    (note - checks the links so may be slow)
+</form>
+
+
+{% endblock %}
