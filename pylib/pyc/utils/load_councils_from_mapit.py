@@ -15,7 +15,8 @@ from pyc.core.models import Council
 
     
 # full list of codes under 'Multiple Areas' heading http://mapit.mysociety.org/:
-mapit_areas_url = 'http://mapit.mysociety.org/areas/CTY,DIS,LBO,UTA.json'
+# chosen are from mySociety::VotingArea::council_parent_types
+mapit_areas_url = 'http://mapit.mysociety.org/areas/DIS,LBO,MTD,UTA,LGD,CTY,COI.json'
 
 h = httplib2.Http(cache='.cache')
 

@@ -3,8 +3,6 @@
 
 Add admin facility to check councils that do not have petitions. Track when last checked and show list of those that need checking. Google search to kick start process.
 
-Add google analytics
-
 Stop map flicker for council pages - perhaps by loading map with the correct bounds.
 
 List of councils on a page so that search engines can access them.
