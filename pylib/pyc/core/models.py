@@ -68,3 +68,16 @@ class Council(models.Model):
 class CouncilAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
+
+
+
+class Petition(models.Model):
+    council     = models.ForeignKey('Council')
+    
+    title       = models.CharField(max_length=200)
+    guid        = models.CharField(max_length=200)
+    url         = models.URLField(unique=True)
+    description = models.CharField(max_length=2000)
+
+    first_seen  = models.DateTimeField(auto_now_add=True)
+    pub_date    = models.DateTimeField(null=True)
