@@ -32,11 +32,25 @@
 
     </head>
     <body>
-
+        
         <div id="background_map">
             <noscript>To see map please enable JavaScript</noscript>
         </div>
         
+        <div id="top_bar">
+            <strong><a href="/">PetitionYourCouncil.com</a></strong>
+
+            <ul>
+                <!-- <li><a href="">foo</a></li> -->
+                <li>
+                    <form action="{% url core.views.search %}">
+                        <input type="text" name="q" value="search" size="14"/>
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+
         <div id="dev-site-warning">
             <p>This is a beta site - there may be some small glitches and issues.</p>
         </div>
