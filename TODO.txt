@@ -15,16 +15,9 @@ Deploy on proper server with correct domain
 
 --- individual petitions ---
 
-create model to represent petitions
-
-import petitions from rss link(s)
-
-link petitions to the councils they apply to (identify by permalink?)
-
 find petitions for each council and display to user
 
 display petitions on background map (popup and scroll) - perhaps not as background but rather as a 'live' page?
-
 
 --- later ---
 

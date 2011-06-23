@@ -81,3 +81,9 @@ class Petition(models.Model):
 
     first_seen  = models.DateTimeField(auto_now_add=True)
     pub_date    = models.DateTimeField(null=True)
+
+    def __unicode__(self):
+        return "%s (%s)" % ( self.title, self.council.name )
+
+    class Meta:
+       ordering = ["title"]      

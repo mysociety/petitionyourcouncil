@@ -1,0 +1,9 @@
+libapache2-mod-wsgi
+postgis
+python-dateutil
+python-django
+python-django-south
+python-feedparser
+python-httplib2
+python-psycopg2
+python-simplejson
