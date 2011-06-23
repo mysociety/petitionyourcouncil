@@ -83,3 +83,21 @@ body {
     }
 
 }
+
+ul.recent_petitions {
+    font-size: 80%;
+    
+    li {
+        padding: 0.5em 3em;
+        list-style: none;
+        a { color: inherit; }
+    }
+    
+    li:hover {
+        background-color: #ddd;
+        a:hover {
+            color: blue;
+        }
+
+    }
+}

@@ -15,11 +15,11 @@ Deploy on proper server with correct domain
 
 --- individual petitions ---
 
-find petitions for each council and display to user
-
 display petitions on background map (popup and scroll) - perhaps not as background but rather as a 'live' page?
 
 --- later ---
+
+Fix page so that it will scroll to the end of the floating box.
 
 gather url of council petition site if one not found in our system. email
 someone to have it checked out.

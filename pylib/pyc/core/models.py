@@ -86,4 +86,4 @@ class Petition(models.Model):
         return "%s (%s)" % ( self.title, self.council.name )
 
     class Meta:
-       ordering = ["title"]      
+       ordering = ["-pub_date"]      

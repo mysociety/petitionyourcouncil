@@ -54,3 +54,15 @@ body {
 #homepage_search input {
   font-size: 200%;
   text-align: center; }
+
+ul.recent_petitions {
+  font-size: 80%; }
+  ul.recent_petitions li {
+    padding: 0.5em 3em;
+    list-style: none; }
+    ul.recent_petitions li a {
+      color: inherit; }
+  ul.recent_petitions li:hover {
+    background-color: #ddd; }
+    ul.recent_petitions li:hover a:hover {
+      color: blue; }

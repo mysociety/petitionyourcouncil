@@ -12,16 +12,25 @@
 
 {% if council.petition_url %}
 
-<p>Hurrah!</p>
+<h3>Hurrah!</h3>
 
-<p>{{ council.name }} has an online petitions site that you can access
-using the link below:</p>
+<p>{{ council.name }} has an <a href="{{ council.petition_url }}">online petitions site</a>!</p>
 
-<p><a href="{{ council.petition_url }}">Petition Website</a></p>
+
+<h3>Recent Petitions</h3>
+
+<ul class='recent_petitions'>
+    {% for petition in council.petition_set.all %}
+        <li><a href="{{ petition.url }}">{{ petition.title }}</a></li>
+    {% empty %}
+        <li>No recent petitions found...</li>
+    {% endfor %}
+</ul>
+
 
 {% else %}
 
-<p>Bad news!</p>
+<h3>Bad news!</h3>
 
 <p>{{ council.name }} does not have a petitions website so you can't make an
 online petition directly to them.</p>
