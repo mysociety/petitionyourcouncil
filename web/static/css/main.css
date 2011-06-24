@@ -11,12 +11,13 @@ body {
   font-family: "Arial", sans-serif;
   background-color: #99b3cc; }
 
-#background_map {
+#background_map_outer {
   position: fixed;
   top: 0;
   left: 0;
   background-color: #99b3cc;
-  opacity: 0.5; }
+  opacity: 0.5;
+  z-index: -1; }
 
 #top_bar {
   z-index: 1;
@@ -63,9 +64,10 @@ body {
       color: inherit; }
 
 #content {
-  position: fixed;
-  top: 80px;
-  left: 25%;
+  /*    position: fixed;*/
+  /*    top: 80px;*/
+  /*    left: 25%;*/
+  margin: 80px auto 0 auto;
   width: 50%;
   background: #f5f7fa;
   background: rgba(255, 255, 255, 0.9);

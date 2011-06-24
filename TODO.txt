@@ -1,6 +1,8 @@
 
 --- needed for launch ---
 
+remove dev bar when staging = false
+
 link to petition admin section
 
 Stop map flicker for council pages - perhaps by loading map with the correct bounds.
@@ -18,8 +20,6 @@ Deploy on proper server with correct domain
 display petitions on background map (popup and scroll) - perhaps not as background but rather as a 'live' page?
 
 --- later ---
-
-Fix page so that it will scroll to the end of the floating box.
 
 gather url of council petition site if one not found in our system. email
 someone to have it checked out.
