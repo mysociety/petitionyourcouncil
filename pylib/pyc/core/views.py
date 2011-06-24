@@ -52,14 +52,33 @@ def search(request):
         )
 
     # If we've only found one result then go straight there
-    if qs.count() == 1:
+    result_count = qs.count()
+    if result_count == 1:
         return redirect( council, slug=qs[0].slug )
-        
+    
+    # have more than one result - work out the bounds for the first five
+    if result_count > 1:
+        to_display = qs[:5]
+        bounds = {
+            "north": max( [ i.north_east.x for i in to_display ]),
+            "east":  max( [ i.north_east.y for i in to_display ]),
+            "south": min( [ i.south_west.x for i in to_display ]),
+            "west":  min( [ i.south_west.y for i in to_display ]),
+        }
+        kml_ids = [ i.mapit_id for i in to_display ]
+    else:
+        bounds = None
+        kml_ids = []
+
     return object_list(
         request,
         queryset      = qs,
         template_name = 'core/search.html',
-        extra_context = { "q": q, },
+        extra_context = {
+            "q":       q,
+            "bounds":  bounds,
+            "kml_ids": kml_ids,
+        },
     )
 
 

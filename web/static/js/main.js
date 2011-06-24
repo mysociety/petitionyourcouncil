@@ -75,8 +75,10 @@ function PYC () {
         this.map.fitBounds( this.map_bounds );
         
         // if there are councils then show them on the map
-        if ( this.council_ids.length ) {
-            var id = this.council_ids[0];
+        for ( var i = 0; i < this.council_ids.length; i++ ) {
+            
+            var id = this.council_ids[i];
+
             var url = 'http://mapit.mysociety.org/area/' + id + '.kml';
 
             var kml = new google.maps.KmlLayer(
@@ -84,7 +86,8 @@ function PYC () {
                 {
                     map: this.map,
                     clickable: false,
-                    suppressInfoWindows: true
+                    suppressInfoWindows: true,
+                    preserveViewport: true
                 }
             );
         }

@@ -22,5 +22,26 @@
     <input type="submit" value="Search again" />
 </form>
 
+{% endblock %}
 
+
+{% block set_map_bounds %}
+    {% if bounds %}
+    <script type="text/javascript" charset="utf-8">
+
+        pyc.set_map_bounds(
+            {{ bounds.north }},
+            {{ bounds.east  }},
+            {{ bounds.south }},
+            {{ bounds.west  }}
+        );
+
+        {% for id in kml_ids %}
+            pyc.add_council_by_mapit_id( {{ id }} );
+        {% endfor %}
+
+    </script>
+    {% else %}
+        {{ block.super }}
+    {% endif %}
 {% endblock %}
