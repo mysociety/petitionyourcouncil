@@ -6,6 +6,16 @@ from datetime import datetime, timedelta
 
 import settings
 
+class CouncilQuerySet(models.query.GeoQuerySet):
+    def with_location( self ):
+        """limit to having a location"""
+        return self.exclude( centre__isnull=True )
+
+
+class CouncilManager(models.GeoManager):
+    def get_query_set(self):
+        return CouncilQuerySet(self.model)
+
 class Council(models.Model):
     slug         = models.SlugField(max_length=200, unique=True)
     name         = models.CharField(max_length=200)
@@ -21,7 +31,7 @@ class Council(models.Model):
     south_west = models.PointField(null=True)
     centre     = models.PointField(null=True)
     
-    objects = models.GeoManager()
+    objects = CouncilManager()
 
     def has_location(self):
         """have bounds been set for this council"""

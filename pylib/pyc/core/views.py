@@ -58,7 +58,7 @@ def search(request):
     
     # have more than one result - work out the bounds for the first five
     if result_count > 1:
-        to_display = qs[:5]
+        to_display = qs.with_location()[:5]
         bounds = {
             "north": max( [ i.north_east.x for i in to_display ]),
             "east":  max( [ i.north_east.y for i in to_display ]),
