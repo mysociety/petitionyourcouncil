@@ -27,7 +27,7 @@ def search(request):
         return redirect(index)
 
     # assume that the query is a postcode if it has a number in
-    if re.search( q, r'\d' ):
+    if re.search( r'\d', q ):
         council_ids = postcode_to_council_ids( q )
     else:
         # slightly inefficient - but keeps code cleaner later on
