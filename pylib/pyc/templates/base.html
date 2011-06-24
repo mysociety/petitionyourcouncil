@@ -43,14 +43,34 @@
             <strong><a href="/">PetitionYourCouncil.com</a></strong>
 
             <ul>
-                <!-- <li><a href="">foo</a></li> -->
-                <li>
+                 <li>
                     <form action="{% url core.views.search %}">
                         <input type="text" name="q" value="search" size="14"/>
                     </form>
                 </li>
             </ul>
 
+        </div>
+
+        <div id="social">
+            <div class="item">
+                <fb:like
+                    href=""
+                    send="false"
+                    layout="button_count"
+                    width="100"
+                    show_faces="false"
+                    font="arial"
+                ></fb:like>
+            </div>            
+            <div class="item">
+                <a
+                    href="http://twitter.com/share"
+                    class="twitter-share-button"
+                    data-text="{% block tweet %}Find out if you can petition your council online: {% endblock %}"
+                    data-count="horizontal"
+                >&nbsp;</a>
+            </div>            
         </div>
 
         <div id="dev-site-warning">
@@ -62,6 +82,10 @@
             Content goes here
         {% endblock %}
         </div>
+
+        <div id="fb-root"></div>
+        <script src="http://connect.facebook.net/en_US/all.js#appId=158454200832640&amp;xfbml=1"></script>
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
     </body>
 </html>

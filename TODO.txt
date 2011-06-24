@@ -11,7 +11,8 @@ List of councils on a page so that search engines can access them.
 
 SEO wording so that we come high up
 
-Social - retweet and like on Facebook
+
+Add opengraph whatnot to all pages
 
 Deploy on proper server with correct domain
 
