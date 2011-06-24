@@ -1,18 +1,17 @@
 
 --- needed for launch ---
 
-remove dev bar when staging = false
-
 link to petition admin section
 
+Keep map centre central when resizing
+
 Stop map flicker for council pages - perhaps by loading map with the correct bounds.
+
+Show the bounds for several areas at once on search pages.
 
 List of councils on a page so that search engines can access them.
 
 SEO wording so that we come high up
-
-
-Add opengraph whatnot to all pages
 
 Deploy on proper server with correct domain
 
@@ -21,6 +20,8 @@ Deploy on proper server with correct domain
 display petitions on background map (popup and scroll) - perhaps not as background but rather as a 'live' page?
 
 --- later ---
+
+Add opengraph whatnot to all pages
 
 gather url of council petition site if one not found in our system. email
 someone to have it checked out.
