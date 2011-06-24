@@ -33,9 +33,9 @@ for council in councils_with_rss:
             guid   = rss_entry['id'],
             defaults = {
                 'council'     : council,
-                'title'       : rss_entry['title'],
+                'title'       : rss_entry['title'][:200],
                 'url'         : rss_entry['link'],
-                'description' : rss_entry['summary'],
+                'description' : rss_entry['summary'][:2000],
                 'pub_date'    : pub_date,
             },
         )

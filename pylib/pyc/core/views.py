@@ -107,12 +107,14 @@ def petition_next (request):
     qs = models.Petition.objects.order_by( '-pub_date' )
 
     if last_id:
+        # select the next most recent petition that has a location but is not
+        # from the same council as the last one
         last_petition = get_object_or_404( models.Petition, pk=last_id)
         councils = models.Council.objects.all().with_location()
         qs = (
                 qs
-                .exclude( council=last_petition.council )
                 .filter( council__in=councils )
+                .exclude( council=last_petition.council )
                 .filter( pub_date__lt=last_petition.pub_date )
         )
 
