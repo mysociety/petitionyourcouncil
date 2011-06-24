@@ -29,7 +29,7 @@ for council in councils_with_rss:
 
         pub_date = dateutil.parser.parse( rss_entry['updated'], fuzzy=True )
             
-        petition = Petition.objects.get_or_create(
+        petition, created = Petition.objects.get_or_create(
             guid   = rss_entry['id'],
             defaults = {
                 'council'     : council,

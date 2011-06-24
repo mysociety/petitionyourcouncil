@@ -16,6 +16,20 @@ class Council(models.Model):
     
     last_checked      = models.DateTimeField(null=True)
     defer_check_until = models.DateTimeField(null=True)
+    
+    north_east = models.PointField(null=True)
+    south_west = models.PointField(null=True)
+    centre     = models.PointField(null=True)
+    
+    objects = models.GeoManager()
+
+    def has_location(self):
+        """have bounds been set for this council"""
+        if self.centre is None:
+            return False
+        else:
+            return True
+        
 
     def bump_defer_check_until(self):
         self.defer_check_until = datetime.now() + timedelta(minutes=10)

@@ -8,10 +8,6 @@
 
 <h2>{{ council.name }}</h2>
 
-<script type="text/javascript" charset="utf-8">
-    pyc.add_council_by_mapit_id( {{ council.mapit_id }} );
-</script>
-
 {% if council.petition_url %}
 
 <h3>Hurrah!</h3>
@@ -40,3 +36,23 @@ online petition directly to them.</p>
 {% endif %}
 
 {% endblock %}
+
+{% block set_map_bounds %}
+    {% if council.has_location %}
+    <script type="text/javascript" charset="utf-8">
+
+        pyc.set_map_bounds(
+            {{ council.north_east.x }},
+            {{ council.north_east.y }},
+            {{ council.south_west.x }},
+            {{ council.south_west.y }}
+        );
+
+        pyc.add_council_by_mapit_id( {{ council.mapit_id }} );
+
+    </script>
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+
