@@ -1,5 +1,3 @@
-{% load value_from_settings %}
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
     <head>
@@ -19,7 +17,7 @@
         <script type="text/javascript">
 
           var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', '{% value_from_settings GOOGLE_ANALYTICS_ACCOUNT %}']);
+          _gaq.push(['_setAccount', '{{ settings.GOOGLE_ANALYTICS_ACCOUNT }}']);
           _gaq.push(['_trackPageview']);
 
           (function() {
@@ -73,9 +71,11 @@
             </div>            
         </div>
 
+        {% if settings.STAGING %}
         <div id="dev-site-warning">
             <p>This is a beta site - there may be some small glitches and issues.</p>
         </div>
+        {% endif %}
 
         <div id="content">
         {% block content %}

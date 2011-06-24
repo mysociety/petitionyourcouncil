@@ -29,8 +29,10 @@ except ImportError:
 
 if int(config.get('STAGING')):
     DEBUG = True
+    STAGING = True
 else:
     DEBUG = False
+    STAGING = False
 
 # configure logging
 if DEBUG:
@@ -128,6 +130,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.request',
+    'pyc.core.context_processors.add_settings',
 )
 
 INSTALLED_APPS = (
