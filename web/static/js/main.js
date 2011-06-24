@@ -127,7 +127,6 @@ function PYC () {
     };
 
     this.draw_petition = function (data) {
-        console.debug( data );
 
         if ( this.info_window )
             this.info_window.close();
