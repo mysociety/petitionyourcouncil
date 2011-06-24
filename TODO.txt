@@ -3,8 +3,6 @@
 
 link to petition admin section
 
-Keep map centre central when resizing
-
 Stop map flicker for council pages - perhaps by loading map with the correct bounds.
 
 Show the bounds for several areas at once on search pages.

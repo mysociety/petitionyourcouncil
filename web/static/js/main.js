@@ -27,8 +27,11 @@ function PYC () {
         })
 
         // tell the map we've changed size (if it is set)
-        if (this.map)
-          google.maps.event.trigger( this.map, 'resize' );
+        if (this.map) {
+            var centre = this.map.getCenter();
+            google.maps.event.trigger( this.map, 'resize' );
+            this.map.panTo( centre );            
+        }
           
     };
     
