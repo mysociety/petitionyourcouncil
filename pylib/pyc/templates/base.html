@@ -82,6 +82,18 @@
             Content goes here
         {% endblock %}
         </div>
+        
+        {% block set_map_bounds %}
+        <!-- default bounds is the UK -->
+        <script type="text/javascript" charset="utf-8">
+            pyc.set_map_bounds(
+                58.7,   // north
+                2,      // east
+                50,     // south
+                -10     // west
+            );
+        </script>
+        {% endblock %}
 
         <div id="fb-root"></div>
         <script src="http://connect.facebook.net/en_US/all.js#appId=158454200832640&amp;xfbml=1"></script>

@@ -2,6 +2,18 @@
 function PYC () {
     this.map            = false;
     this.council_ids    = [];
+    this.map_bounds     = false;
+
+    this.set_map_bounds = function ( n, e, s, w ) {
+
+        var ne = new google.maps.LatLng( n, e );
+        var sw = new google.maps.LatLng( s, w );
+
+        this.map_bounds = new google.maps.LatLngBounds( sw, ne );
+
+        return true;
+    };
+
     
     this.init = function () {
         this.resize_background_map();
@@ -11,7 +23,7 @@ function PYC () {
         var me = this;
         $(window)
           .resize( function () { me.resize_background_map() } );
-    }
+    };
 
     // ----------------------
     
@@ -37,11 +49,10 @@ function PYC () {
     
     
     this.initialize_map = function () {
-        var myLatlng = new google.maps.LatLng( 54, -4 );
-    
+
         var options = {
             zoom: 6,
-            center: myLatlng,
+            center: this.map_bounds.getCenter(),
     
             // use the roadmap as it is probably clearest
             mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -60,6 +71,8 @@ function PYC () {
             document.getElementById("background_map"),
             options
         );
+        
+        this.map.fitBounds( this.map_bounds );
         
         // if there are councils then show them on the map
         if ( this.council_ids.length ) {
