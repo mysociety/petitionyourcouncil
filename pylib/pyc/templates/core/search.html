@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<h2>Councils covering '{{ q }}'</h2>
+<h2>Councils for '{{ q }}'</h2>
 
 {% for council in object_list %}
     <p>
@@ -12,7 +12,8 @@
     </p>
 {% empty %}
     <p>
-        No councils were found for '{{ q }}' - is it a valid postcode?
+        No councils were found for '{{ q }}' - is it a valid postcode or the
+        name of a council?
     </p>
 {% endfor %}
 

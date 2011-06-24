@@ -1,4 +1,5 @@
 import logging
+import re
 
 from django.shortcuts  import render_to_response, get_object_or_404, redirect
 from django.template   import RequestContext
@@ -19,14 +20,19 @@ def index(request):
 
 
 def search(request):
-    """Search for postcode (initially - may extend later)"""
+    """Search for postcode or a council name"""
 
     q = request.GET.get('q', '')
     if not q:
         return redirect(index)
 
-    # assume that the query is a postcode and search for it
-    council_ids = postcode_to_council_ids( q )
+    # assume that the query is a postcode if it has a number in
+    if re.search( q, r'\d' ):
+        council_ids = postcode_to_council_ids( q )
+    else:
+        # slightly inefficient - but keeps code cleaner later on
+        matches = models.Council.objects.filter( name__icontains=q )
+        council_ids = [ i.mapit_id for i in matches ]
 
     if not council_ids:
         return render_to_response(

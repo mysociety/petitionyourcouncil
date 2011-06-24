@@ -19,8 +19,6 @@ display petitions on background map (popup and scroll) - perhaps not as backgrou
 
 --- later ---
 
-Search by council name as well as postcode
-
 Fix page so that it will scroll to the end of the floating box.
 
 gather url of council petition site if one not found in our system. email
