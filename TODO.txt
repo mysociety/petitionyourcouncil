@@ -1,19 +1,15 @@
 
 --- needed for launch ---
 
-link to petition admin section
+display petitions on background map (popup and scroll) - perhaps not as background but rather as a 'live' page?
 
-Show the bounds for several areas at once on search pages.
+link to petition admin section
 
 List of councils on a page so that search engines can access them.
 
 SEO wording so that we come high up
 
 Deploy on proper server with correct domain
-
---- individual petitions ---
-
-display petitions on background map (popup and scroll) - perhaps not as background but rather as a 'live' page?
 
 --- later ---
 
