@@ -1,8 +1,10 @@
 
 function PYC () {
-    this.map            = false;
-    this.council_ids    = [];
-    this.map_bounds     = false;
+    this.map               = false;
+    this.council_ids       = [];
+    this.map_bounds        = false;
+    this.display_petitions = false;
+    this.info_window       = false;
 
     this.set_map_bounds = function ( n, e, s, w ) {
 
@@ -23,6 +25,10 @@ function PYC () {
         var me = this;
         $(window)
           .resize( function () { me.resize_background_map() } );
+
+        if ( this.display_petitions ) {
+            this.start_displaying_petitions();
+        }
     };
 
     // ----------------------
@@ -97,9 +103,47 @@ function PYC () {
     this.add_council_by_mapit_id = function ( id ) {
         this.council_ids.push( id );
     };
-
-
     
+    this.start_displaying_petitions = function () {
+
+        var self = this;
+
+        var runner = function ( last_id ) {
+            $.ajax({
+                url: '/petition/next.json',
+                data: { 'last_id': last_id },
+                success: function ( data, textStatus, jqXHR ) {
+                    self.draw_petition( data );
+                    setTimeout( function () { runner(data.id); } , 5000 );
+                },
+                error: function () {
+                    if ( this.info_window )
+                        this.info_window.close();                    
+                },
+            });
+        };
+        
+        runner( 0 );        
+    };
+
+    this.draw_petition = function (data) {
+        console.debug( data );
+
+        if ( this.info_window )
+            this.info_window.close();
+
+        var position = new google.maps.LatLng( data.lat, data.lon );
+
+        this.info_window = new google.maps.InfoWindow(
+            {
+                content: data.title,
+                position: position
+            }
+        );
+        
+        this.info_window.open( this.map );
+    };
+
 };
 
 // set everything up

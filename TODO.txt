@@ -1,8 +1,6 @@
 
 --- needed for launch ---
 
-display petitions on background map (popup and scroll) - perhaps not as background but rather as a 'live' page?
-
 link to petition admin section
 
 List of councils on a page so that search engines can access them.
@@ -22,3 +20,4 @@ gather email addresses of people who want there to be petitions in this council
 so we can inform them when they become available.
 
 Add parliamentary level petitions? eg: http://www.scottish.parliament.uk/s3/committees/petitions/index.htm
+

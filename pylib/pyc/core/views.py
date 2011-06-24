@@ -4,6 +4,8 @@ import re
 from django.shortcuts  import render_to_response, get_object_or_404, redirect
 from django.template   import RequestContext
 from django.views.generic.list_detail   import object_list, object_detail
+from django import http
+from django.utils import simplejson
 
 from pyc.core import models
 
@@ -16,7 +18,6 @@ def index(request):
         {},
         context_instance=RequestContext(request)
     )
-
 
 
 def search(request):
@@ -88,7 +89,7 @@ def council(request, slug):
     try:
         council = models.Council.objects.get(slug=slug)
     except models.Council.DoesNotExist:
-        raise Http404
+        raise http.Http404
 
     return render_to_response(
         'core/council.html',
@@ -97,3 +98,38 @@ def council(request, slug):
         },
         context_instance=RequestContext(request)
     )
+
+
+def petition_next (request):
+    """Return json of the next petition"""
+    last_id = int( request.GET.get('last_id', 0 ) )
+    
+    qs = models.Petition.objects.order_by( '-pub_date' )
+
+    if last_id:
+        last_petition = get_object_or_404( models.Petition, pk=last_id)
+        councils = models.Council.objects.all().with_location()
+        qs = (
+                qs
+                .exclude( council=last_petition.council )
+                .filter( council__in=councils )
+                .filter( pub_date__lt=last_petition.pub_date )
+        )
+
+    try:
+        petition = qs[0]
+    except IndexError:
+        raise http.Http404
+
+    data = {
+        "id":      petition.id,
+        "title":   petition.title,    
+        "lat":     petition.council.centre.x,
+        "lon":     petition.council.centre.y,
+        "council": petition.council.name,
+    }
+    
+    response = http.HttpResponse(content_type='application/json; charset=utf-8')
+    simplejson.dump(data, response, ensure_ascii=False, indent=4)
+    return response
+    
