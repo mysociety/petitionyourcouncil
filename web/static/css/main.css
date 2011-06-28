@@ -112,7 +112,10 @@ ul.recent_petitions {
   font-size: 12px;
   min-width: 200px;
   padding: 4px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-border-radius-top-left: 0px;
+  -webkit-border-radius-top-left: 0px;
+  border-top-left-radius: 0px;
   border: 1px solid #000; }

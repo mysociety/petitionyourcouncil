@@ -10,6 +10,12 @@ $promo_serif: "Goudy Bookletter 1911", Georgia, arial, serif;
     border-radius:         $radius;
 }
 
+@mixin roundedCornersTopLeft ( $radius ) {
+    -moz-border-radius-top-left:    $radius;
+    -webkit-border-radius-top-left: $radius;
+    border-top-left-radius:         $radius;
+}
+
 @mixin boxShadow( $h, $w, $blur, $color ) { 
     -moz-box-shadow:    $h $w $blur $color; 
     -webkit-box-shadow: $h $w $blur $color; 
@@ -167,6 +173,7 @@ ul.recent_petitions {
     font-size: 12px;
     min-width: 200px;
     padding: 4px;
-    @include roundedCorners( 5px );
+    @include roundedCorners( 10px );
+    @include roundedCornersTopLeft( 0px );
     border: 1px solid #000;
 }
