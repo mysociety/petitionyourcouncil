@@ -14,9 +14,12 @@
 </p>
 
 <p>
-    Start <a href="{% url core.admin_views.next_missing_site %}">entering petition details for the next council</a>.
+    There are <strong>{{ object_list.count }}</strong> councils without e-petitions.
 </p>
 
+<p>
+    Start <a href="{% url core.admin_views.next_missing_site %}">entering petition details for the next council</a>.
+</p>
 
 <ul>
 {% for object in object_list %}

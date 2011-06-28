@@ -21,8 +21,11 @@ class Council(models.Model):
     name         = models.CharField(max_length=200)
     mapit_id     = models.IntegerField(unique=True)
     mapit_type   = models.CharField(max_length=3)
+
     petition_url = models.URLField(verify_exists=True, blank=True )
     petition_rss = models.URLField(verify_exists=True, blank=True )
+
+    contact_email = models.EmailField( blank=True, default='' )
     
     last_checked      = models.DateTimeField(null=True)
     defer_check_until = models.DateTimeField(null=True)
