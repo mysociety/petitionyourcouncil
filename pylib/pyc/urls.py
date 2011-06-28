@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
+from django.views.generic.simple import direct_to_template
 
 import settings
 
@@ -30,3 +31,8 @@ if settings.SERVE_STATIC_FILES:
             {'document_root': settings.MEDIA_ROOT }
         ),
     )
+
+# static docs that get templated
+urlpatterns += patterns('',
+    (r'^about$', direct_to_template, {'template': 'about.html'}),
+)
