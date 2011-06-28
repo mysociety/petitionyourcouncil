@@ -110,12 +110,16 @@ def petition_next (request):
         # select the next most recent petition that has a location but is not
         # from the same council as the last one
         last_petition = get_object_or_404( models.Petition, pk=last_id)
-        councils = models.Council.objects.all().with_location()
+
+        # TODO - would prefer not to use the council__centre__is_null here and 
+        # to use the 'with_location' queryset instead but that was causing a
+        # 'ProgrammingError' exception on fury with D1.1
+
         qs = (
-                qs
-                .filter( council__in=councils )
-                .exclude( council=last_petition.council )
-                .filter( pub_date__lt=last_petition.pub_date )
+            qs
+              .filter( council__centre__isnull=False )
+              .filter( pub_date__lt=last_petition.pub_date )
+              .exclude( council=last_petition.council )
         )
 
     try:
@@ -134,4 +138,3 @@ def petition_next (request):
     response = http.HttpResponse(content_type='application/json; charset=utf-8')
     simplejson.dump(data, response, ensure_ascii=False, indent=4)
     return response
-    
