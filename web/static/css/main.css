@@ -106,3 +106,13 @@ ul.recent_petitions {
     background-color: #ddd; }
     ul.recent_petitions li:hover a:hover {
       color: blue; }
+
+.infoBox {
+  background-color: #fff;
+  font-size: 12px;
+  min-width: 200px;
+  padding: 4px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #000; }

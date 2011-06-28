@@ -7,6 +7,8 @@ List of councils on a page so that search engines can access them.
 
 SEO wording so that we come high up
 
+Set up cron jobs
+
 Deploy on proper server with correct domain
 
 --- later ---
@@ -21,3 +23,6 @@ so we can inform them when they become available.
 
 Add parliamentary level petitions? eg: http://www.scottish.parliament.uk/s3/committees/petitions/index.htm
 
+--- possible sources of petitions site data ---
+
+http://www.guardian.co.uk/local-government-network/2011/jun/21/councils-fail-digital-democracy

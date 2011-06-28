@@ -161,3 +161,12 @@ ul.recent_petitions {
 
     }
 }
+
+.infoBox {
+    background-color: #fff;
+    font-size: 12px;
+    min-width: 200px;
+    padding: 4px;
+    @include roundedCorners( 5px );
+    border: 1px solid #000;
+}

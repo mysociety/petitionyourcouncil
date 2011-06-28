@@ -4,7 +4,7 @@ function PYC () {
     this.council_ids       = [];
     this.map_bounds        = false;
     this.display_petitions = false;
-    this.info_window       = false;
+    this.info_box       = false;
 
     this.set_map_bounds = function ( n, e, s, w ) {
 
@@ -103,7 +103,7 @@ function PYC () {
     this.add_council_by_mapit_id = function ( id ) {
         this.council_ids.push( id );
     };
-    
+
     this.start_displaying_petitions = function () {
 
         var self = this;
@@ -114,11 +114,11 @@ function PYC () {
                 data: { 'last_id': last_id },
                 success: function ( data, textStatus, jqXHR ) {
                     self.draw_petition( data );
-                    setTimeout( function () { runner(data.id); } , 5000 );
+                    setTimeout( function () { runner(data.id); } , 8000 );
                 },
                 error: function () {
-                    if ( this.info_window )
-                        this.info_window.close();                    
+                    if ( this.info_box )
+                        this.info_box.close();                    
                 },
             });
         };
@@ -128,19 +128,25 @@ function PYC () {
 
     this.draw_petition = function (data) {
 
-        if ( this.info_window )
-            this.info_window.close();
+        if ( this.info_box )
+            this.info_box.close();
 
         var position = new google.maps.LatLng( data.lat, data.lon );
 
-        this.info_window = new google.maps.InfoWindow(
+        var heading = $('<strong />').text( data.council );
+        var title   = $('<div />').text( data.title );
+        var content = $('<div />').append(heading).append(title);
+
+        this.info_box = new InfoBox(
             {
-                content: data.title,
-                position: position
+                content: content.html(),
+                position: position,
+                closeBoxURL: '',         // have no close box
+                maxWidth: 300
             }
         );
         
-        this.info_window.open( this.map );
+        this.info_box.open( this.map );
     };
 
 };
