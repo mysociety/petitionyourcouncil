@@ -37,6 +37,20 @@ online petition directly to them.</p>
 
 {% endblock %}
 
+
+
+
+{% block report_error_text %}
+    {% if council.petition_url %}    
+        Let us know if the e-petitions link is wrong or broken.
+    {% else %}
+        Does this council have an e-petitions website? Let us know.
+    {% endif %}
+{% endblock %}
+
+
+
+
 {% block set_map_bounds %}
     {% if council.has_location %}
     <script type="text/javascript" charset="utf-8">

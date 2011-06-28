@@ -94,6 +94,17 @@
         {% block content %}
             Content goes here
         {% endblock %}
+
+        {% block report_error %}
+            <div id="report_error">
+                <a href="{% url core.views.report_error %}?url={{ request.build_absolute_uri|urlencode }}">
+                    {% block report_error_text %}
+                    If there are errors on this page please let us know.
+                    {% endblock %}
+                </a>
+            </div>
+
+        {% endblock %}
         </div>
         
         {% block set_map_bounds %}

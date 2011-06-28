@@ -172,3 +172,10 @@ ul.recent_petitions {
   -webkit-border-radius-top-left: 0px;
   border-top-left-radius: 0px;
   border: 1px solid #000; }
+
+#report_error {
+  margin-top: 1em;
+  font-size: 75%;
+  color: #888; }
+  #report_error a {
+    color: inherit; }

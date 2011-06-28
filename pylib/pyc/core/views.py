@@ -6,10 +6,12 @@ from django.template   import RequestContext
 from django.views.generic.list_detail   import object_list, object_detail
 from django import http
 from django.utils import simplejson
+from django.core.mail import send_mail
 
 from pyc.core import models
 
 from helpers import postcode_to_council_ids
+import settings
 
 def index(request):
     """Homepage"""
@@ -138,3 +140,33 @@ def petition_next (request):
     response = http.HttpResponse(content_type='application/json; charset=utf-8')
     simplejson.dump(data, response, ensure_ascii=False, indent=4)
     return response
+
+
+def report_error(request):
+    """Let users report an error on any page. Email it to ourselves"""
+
+    url     = request.REQUEST.get('url',     '')
+    message = request.REQUEST.get('message', '')
+    email   = request.REQUEST.get('email',   '')
+    message_sent = False
+    
+    if request.method == 'POST' and message:
+        send_mail(
+            "[PetitionYourCouncil] Error reported on '%s'" % url,
+            "url: %s\nemail: %s\n\n%s" % (url, email, message),
+            settings.REPORT_ERRORS_FROM_EMAIL_ADDRESS,
+            [ settings.REPORT_ERRORS_TO_EMAIL_ADDRESS ],
+            fail_silently=False
+        )
+        message_sent = True        
+    
+    return render_to_response(
+        'core/report_error.html',
+        {
+            'url':          url,
+            'message':      message,
+            'email':        email,
+            'message_sent': message_sent,
+        },
+        context_instance=RequestContext(request)
+    )

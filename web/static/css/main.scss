@@ -257,3 +257,13 @@ ul.recent_petitions {
     @include roundedCornersTopLeft( 0px );
     border: 1px solid #000;
 }
+
+#report_error {
+    margin-top: 1em;
+    font-size: 75%;
+    color: #888;
+    a {
+        color: inherit;
+    }
+}
+

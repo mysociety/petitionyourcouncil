@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Report an error{% endblock %}
+
+{% block content %}
+
+    <h1>Report an error</h1>
+
+    {% if message_sent %}
+        <p>Your error report has been sent - thank you!</p>
+
+        <p><a href="{{ url }}">Return to the page you came from</a></p>
+
+    {% else %}
+
+        {% if url %}
+            <p>We know the address of the <a href="{{ url }}">page that you are reporting</a> the error on so there is no need to put it in the message below.</p>
+        {% endif %}
+        
+        <form method="POST" action="{% url core.views.report_error %}?url={{ url|urlencode }}">
+
+            <input type="hidden" name="url" value="{% firstof url '' %}" />
+
+            <label for="message">What's wrong?</label><br>
+            <textarea id="message" type="text" name="message" cols="40" rows="10">{% firstof message '' %}</textarea>
+
+            <br><br>
+
+            Your email address:<br>
+            <input type="text" name="email" value="{% firstof email '' %}" size="30" />
+            <br>
+            <small>Optional - lets us get back to you.</small>
+
+            <br><br>
+
+
+            <input type="submit" value="Report error" />
+        </form>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block report_error %}
+{% endblock %}
