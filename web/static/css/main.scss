@@ -77,10 +77,10 @@ $top_bar_height: 20px;
     
     ul {
         float: right;
-        font-size: 14px;
+        font-size: 12px;
         
         li {
-            padding: 2px;
+            padding: 0 0.5em;
             display: inline;
             list-style: none;
             
@@ -91,6 +91,86 @@ $top_bar_height: 20px;
                 }
             }
         }
+    }
+    
+    #moresites {
+        padding-right:0;
+        position:relative;
+
+        a {
+            background:url(../bararrow.png) no-repeat right 3px;
+            padding-right:14px;
+        }
+    }
+        
+    #barmenu {
+        width:          20em;
+        background:     white;
+        z-index:        100;
+        position:       absolute;
+        top:            $top_bar_height;
+        right:          0;
+        margin:         0;
+        padding:        0;
+        text-transform: none;
+        border:         solid 1px #a4a4a4;
+        display:        none;
+    
+        li {
+            float:none;
+            margin:0;
+            padding:0;
+            border-left:none;
+            border-top:dotted 1px #a4a4a4;
+                    
+            a {
+                background:none;
+                display:block;
+                padding:0.5em 1em;
+                color:#2c4a9e;
+            }
+            
+            a:hover {
+                background:#E9F3FE;
+            }
+            
+            form {
+                padding:0.5em;
+            
+                input.textbox {
+                    width:17em;
+                    margin-right:0.7em;
+                    margin-left:0.5em;
+                    margin-bottom:0.3em;
+                }
+
+                label {
+                    display:block;
+                    padding-top:0.5em;
+                    padding-left:1em;
+                    color:#333;
+                }        
+            }
+        }
+            
+        li.first {
+            border-top:none;
+        }    
+
+        .menutitle {
+            color:#808080;
+            padding:0.5em 1em;
+            font-weight:bold;
+        }
+        
+        .bardivider {
+            border-top:solid 1px #ccc;
+        }
+        
+        .bordernodivider {
+            border-top:none
+        }
+        
     }
 }
 

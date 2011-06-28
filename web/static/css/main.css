@@ -39,15 +39,68 @@ body {
     font-size: 16px; }
   #top_bar ul {
     float: right;
-    font-size: 14px; }
+    font-size: 12px; }
     #top_bar ul li {
-      padding: 2px;
+      padding: 0 0.5em;
       display: inline;
       list-style: none; }
       #top_bar ul li form {
         display: inline; }
         #top_bar ul li form input {
           margin: 1px; }
+  #top_bar #moresites {
+    padding-right: 0;
+    position: relative; }
+    #top_bar #moresites a {
+      background: url(../bararrow.png) no-repeat right 3px;
+      padding-right: 14px; }
+  #top_bar #barmenu {
+    width: 20em;
+    background: white;
+    z-index: 100;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    text-transform: none;
+    border: solid 1px #a4a4a4;
+    display: none; }
+    #top_bar #barmenu li {
+      float: none;
+      margin: 0;
+      padding: 0;
+      border-left: none;
+      border-top: dotted 1px #a4a4a4; }
+      #top_bar #barmenu li a {
+        background: none;
+        display: block;
+        padding: 0.5em 1em;
+        color: #2c4a9e; }
+      #top_bar #barmenu li a:hover {
+        background: #E9F3FE; }
+      #top_bar #barmenu li form {
+        padding: 0.5em; }
+        #top_bar #barmenu li form input.textbox {
+          width: 17em;
+          margin-right: 0.7em;
+          margin-left: 0.5em;
+          margin-bottom: 0.3em; }
+        #top_bar #barmenu li form label {
+          display: block;
+          padding-top: 0.5em;
+          padding-left: 1em;
+          color: #333; }
+    #top_bar #barmenu li.first {
+      border-top: none; }
+    #top_bar #barmenu .menutitle {
+      color: #808080;
+      padding: 0.5em 1em;
+      font-weight: bold; }
+    #top_bar #barmenu .bardivider {
+      border-top: solid 1px #ccc; }
+    #top_bar #barmenu .bordernodivider {
+      border-top: none; }
 
 #social {
   z-index: 1;
