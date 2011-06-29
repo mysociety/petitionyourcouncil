@@ -7,6 +7,7 @@ from django.views.generic.list_detail   import object_list, object_detail
 from django import http
 from django.utils import simplejson
 from django.core.mail import send_mail
+from django.core.urlresolvers import  reverse
 
 from pyc.core import models
 
@@ -130,11 +131,12 @@ def petition_next (request):
         raise http.Http404
 
     data = {
-        "id":      petition.id,
-        "title":   petition.title,    
-        "lat":     petition.council.centre.x,
-        "lon":     petition.council.centre.y,
-        "council": petition.council.name,
+        "id":          petition.id,
+        "title":       petition.title,    
+        "lat":         petition.council.centre.x,
+        "lon":         petition.council.centre.y,
+        "council":     petition.council.name,
+        "council_url": reverse( council, kwargs={'slug':petition.council.slug} ),
     }
     
     response = http.HttpResponse(content_type='application/json; charset=utf-8')

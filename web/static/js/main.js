@@ -133,9 +133,11 @@ function PYC () {
 
         var position = new google.maps.LatLng( data.lat, data.lon );
 
-        var heading = $('<strong />').text( data.council );
-        var title   = $('<div />').text( data.title );
-        var content = $('<div />').append(heading).append(title);
+        // use the element provided on the home page as a template
+        var content = $('#infoBox_template').clone();
+        $('div', content ).text( data.title );
+        $('a', content ).text( data.council );
+        $('a', content ).attr('href', data.council_url );
 
         this.info_box = new InfoBox(
             {
