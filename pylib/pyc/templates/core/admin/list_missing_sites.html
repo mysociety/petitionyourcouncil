@@ -14,8 +14,16 @@
 </p>
 
 <p>
-    There are <strong>{{ object_list.count }}</strong> councils without e-petitions.
+    There are <strong>{{ object_list.count }}</strong> councils that need to be
+    checked (no email or petition url and not checked recently).
+
+    <br>
+    <small>
+        There are <strong>{{ counts.no_email }}</strong> councils with no contact email,
+        and <strong>{{ counts.no_petition }}</strong> councils with no petiton_url.
+    </small>
 </p>
+
 
 <p>
     Start <a href="{% url core.admin_views.next_missing_site %}">entering petition details for the next council</a>.

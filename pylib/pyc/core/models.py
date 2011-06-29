@@ -55,12 +55,34 @@ class Council(models.Model):
         return True
 
     @classmethod
-    def missing_petitons_qs(cls):
+    def missing_petitions_qs(cls):
         return (
             cls
                 .objects
                 .filter( petition_url='' )
                 .order_by( 'last_checked', 'slug' )
+        )
+
+    @classmethod
+    def missing_contacts_qs(cls):
+        return (
+            cls
+                .objects
+                .filter( contact_email='' )
+                .order_by( 'last_checked', 'slug' )
+        )
+
+    @classmethod
+    def need_checking_qs(cls):
+
+        now            = datetime.now()
+        checked_before = now - timedelta(days=28)
+
+        return (
+            cls
+                .objects
+                .filter( Q(petition_url='') | Q(contact_email='') )
+                .filter( Q(last_checked__lte=checked_before) | Q(last_checked__isnull=True) )
         )
 
     @classmethod
@@ -71,8 +93,7 @@ class Council(models.Model):
 
         return (
             cls
-                .missing_petitons_qs()
-                .filter( Q(last_checked__lte=checked_before) | Q(last_checked__isnull=True) )
+                .need_checking_qs()
                 .filter( Q(defer_check_until__lte=now)       | Q(defer_check_until__isnull=True) )
         )
 

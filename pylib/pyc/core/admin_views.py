@@ -24,10 +24,18 @@ from helpers import postcode_to_council_ids
 def list_missing_sites(request):
     """Go through councils that need to be checked"""
 
+    counts = {
+        'no_email':    Council.missing_contacts_qs().count(),
+        'no_petition': Council.missing_petitions_qs().count(),
+    }
+
     return object_list(
         request,
-        queryset=Council.missing_petitons_qs(),
+        queryset=Council.need_checking_qs(),
         template_name='core/admin/list_missing_sites.html',
+        extra_context = {
+            'counts': counts,
+        },
     )
 
 

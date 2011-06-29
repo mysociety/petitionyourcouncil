@@ -11,6 +11,14 @@ Set up cron jobs
 
 Deploy on proper server with correct domain
 
+Make council names in popups clickable
+
+Email Brunel researcher
+
+Brighten the popups
+    and change wording: "Petition to ...."
+    and make them clickable
+
 --- later ---
 
 Add opengraph whatnot to all pages
@@ -22,7 +30,3 @@ gather email addresses of people who want there to be petitions in this council
 so we can inform them when they become available.
 
 Add parliamentary level petitions? eg: http://www.scottish.parliament.uk/s3/committees/petitions/index.htm
-
---- possible sources of petitions site data ---
-
-http://www.guardian.co.uk/local-government-network/2011/jun/21/councils-fail-digital-democracy
