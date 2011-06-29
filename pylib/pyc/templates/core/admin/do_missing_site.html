@@ -17,12 +17,27 @@ sooner.</p>
 to be checked.</p>
 
 
+<h1>How to find the petitions site</h1>
+
+<p>Please only search for the petitions site quickly using one of the three Google searches. If there is nothing on the first page of results that looks promising assume that the site has no petitions.</p>
+
+
 <form action="" method="post">
     <fieldset>
 
         <p>
             Google for
-            <strong><a href="http://www.google.co.uk/search?q={{ council.name }}">"{{ council.name }}"</a></strong>
+            <strong><a href="http://www.google.co.uk/search?q=epetitions+{{ council.name }}">"epetitions {{ council.name }}"</a></strong>
+        </p>
+
+        <p>
+            Google for
+            <strong><a href="http://www.google.co.uk/search?q=e-petitions+{{ council.name }}">"e-petitions {{ council.name }}"</a></strong>
+        </p>
+
+        <p>
+            Google for
+            <strong><a href="http://www.google.co.uk/search?q=petitions{{ council.name }}">"petitions {{ council.name }}"</a></strong>
         </p>
 
         {{ form.as_p }}
@@ -46,11 +61,11 @@ to be checked.</p>
     <dt>Petition RSS</dt>
     <dd>An RSS feed of petitions</dd>
 
-    <dt>Contact email</dt>
-    <dd>An email address that can be used to contact the council. Usually the general contact address rather than a petition specific address.</dd>
+    <!-- <dt>Contact email</dt>
+    <dd>An email address that can be used to contact the council. Usually the general contact address rather than a petition specific address.</dd> -->
 
 </dl>
 
-<p><strong>You must supply either a petition url or a contact email address</strong></p>
+<!-- <p><strong>You must supply either a petition url or a contact email address</strong></p> -->
 
 {% endblock %}
