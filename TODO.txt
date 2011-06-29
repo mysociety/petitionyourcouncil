@@ -13,8 +13,6 @@ Set up cron jobs
 
 Deploy on proper server with correct domain
 
-Make council names in popups clickable
-
 Email Brunel researcher
 
 Brighten the popups

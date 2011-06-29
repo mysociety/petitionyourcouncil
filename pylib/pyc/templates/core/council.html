@@ -39,8 +39,22 @@
         <p>{{ council.name }} does not have a petitions website so you can't make an
         online petition directly to them.</p>
         
-        {% if council.last_checked %}
-            <p>We checked this council {{ council.last_checked|timesince }} ago.</p>
+        {% if council.has_been_checked %}
+            
+            <p>
+                Why don't you <a href="http://writetothem.com/">write to your
+                councillor</a> to explain your issue, and ask how to petition
+                effectively?
+            </p>
+            
+            {% if council.contact_email %}
+                <p>
+                    You could also try emailing the council directly using
+                    <a href="mailto:{{ council.contact_email }}">{{ council.contact_email }}</a>.
+                </p>
+
+            {% endif %}
+
         {% else %}
             <p>We've not actually checked this council yet. If you want to help please <a href="http://www.google.co.uk/search?q={{ council.name|urlencode }}">visit their website</a> and search for an e-petitions page.</p>
             <p>If you find one <a href="{% url core.views.report_error %}?url={{ request.build_absolute_uri|urlencode }}">let us know</a>.</p>
@@ -58,6 +72,12 @@
         Let us know if the e-petitions link is wrong or broken.
     {% else %}
         Does this council have an e-petitions website? Let us know.
+        
+        {% if council.has_been_checked %}
+            <br>We last checked {{ council.last_checked|timesince }} ago.
+        {% endif %}
+        
+
     {% endif %}
 {% endblock %}
 

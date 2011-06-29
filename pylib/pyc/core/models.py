@@ -42,6 +42,13 @@ class Council(models.Model):
             return False
         else:
             return True
+            
+    def has_been_checked(self):
+        """bool if the council has been checked"""
+        if self.last_checked:
+            return True
+        else:
+            return False
         
 
     def bump_defer_check_until(self):
