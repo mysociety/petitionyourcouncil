@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}'{{ q }}' search results{% endblock %}
+{% block title %}&lsquo;{{ q }}&rsquo; search results{% endblock %}
 
 {% block content %}
 
-<h2>Councils for '{{ q }}'</h2>
+<h2>Councils for &lsquo;{{ q }}&rsquo;</h2>
 
 <ul class="search_results">
 {% for council in object_list %}
@@ -27,6 +27,7 @@
         you’d like to petition.
     </p>
 
+    {% if two_tier %}
     <p>
         <strong>Hint</strong> - District Councils are generally responsible
         for local services, including planning, council housing, and rubbish
@@ -35,6 +36,7 @@
         and motorways), public rights of way, and libraries. But there are lots of
         exceptions - if in doubt ask the councils.
     </p>
+    {% endif %}
 
 {% endif %}
 

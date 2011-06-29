@@ -70,9 +70,12 @@ def search(request):
             "west":  min( [ i.south_west.y for i in to_display ]),
         }
         kml_ids = [ i.mapit_id for i in to_display ]
+        types = [ i.mapit_type for i in to_display ]
+        two_tier = True if 'DIS' in types or 'CTY' in types else False
     else:
         bounds = None
         kml_ids = []
+        two_tier = False
 
     return object_list(
         request,
@@ -82,6 +85,7 @@ def search(request):
             "q":       q,
             "bounds":  bounds,
             "kml_ids": kml_ids,
+            "two_tier": two_tier,
         },
     )
 
