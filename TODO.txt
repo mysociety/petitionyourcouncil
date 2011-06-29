@@ -1,6 +1,8 @@
 
 --- needed for launch ---
 
+Stats page - percentage with and without.
+
 link to petition admin section
 
 List of councils on a page so that search engines can access them.
