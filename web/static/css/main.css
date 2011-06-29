@@ -135,8 +135,8 @@ p {
   /*    position: fixed;*/
   /*    top: 80px;*/
   /*    left: 25%;*/
-  margin: 80px auto 0 auto;
-  width: 50%;
+  margin: 80px auto 0 1em;
+  width: 30%;
   background: #f5f7fa;
   background: rgba(255, 255, 255, 0.9);
   -moz-box-shadow: 1px 1px 6px #444444;
@@ -149,7 +149,7 @@ p {
   padding: 1em; }
 
 #homepage_search input {
-  font-size: 200%;
+  font-size: 150%;
   text-align: center; }
 
 ul.recent_petitions {
