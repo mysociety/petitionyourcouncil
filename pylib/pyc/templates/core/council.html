@@ -18,10 +18,13 @@
     
         <h3>Hurrah!</h3>
         
-        <p>{{ council.name }} has an <a href="{{ council.petition_url }}">online petitions site</a>!</p>
+        <p>{{ council.name }} has an <a href="{{ council.petition_url }}">online petitions site</a>. You can visit it to make a new petition, or sign one created by someone else.</p>
         
+        <p>Good luck!</p>
         
-        <h3>Recent Petitions</h3>
+        {% if council.petition_set.count %}
+        
+        <h3>Petitions to {{ council.name }} include:</h3>
         
         <ul class='recent_petitions'>
             {% for petition in council.petition_set.all %}
@@ -31,33 +34,44 @@
             {% endfor %}
         </ul>
     
+        {% endif %}
     
     {% else %}
     
-        <h3>Bad news!</h3>
-        
-        <p>{{ council.name }} does not have a petitions website so you can't make an
-        online petition directly to them.</p>
         
         {% if council.has_been_checked %}
             
+            <h3>Bad news!</h3>
+                        
+            <p>{{ council.name }} does not have a petitions website so you can't make an online petition directly to them, or browse other petitions made by local people.</p>
+            
             <p>
-                Why don't you <a href="http://writetothem.com/">write to your
-                councillor</a> to explain your issue, and ask how to petition
-                effectively?
+                However, we can help you contact your local councillor(s), via our easy-to-use site <a href="http://writetothem.com/">WriteToThem.com</a>. Please mail them to tell them why you would like to make a petition, and ask them how you should go about it.
             </p>
             
-            {% if council.contact_email %}
-                <p>
-                    You could also try emailing the council directly using
-                    <a href="mailto:{{ council.contact_email }}">{{ council.contact_email }}</a>.
-                </p>
-
-            {% endif %}
-
         {% else %}
-            <p>We've not actually checked this council yet. If you want to help please <a href="http://www.google.co.uk/search?q={{ council.name|urlencode }}">visit their website</a> and search for an e-petitions page.</p>
-            <p>If you find one <a href="{% url core.views.report_error %}?url={{ request.build_absolute_uri|urlencode }}">let us know</a>.</p>
+
+        <h3>
+            Sorry - we don’t know whether this council has a petitions site or not
+        </h3>
+        
+        <p>
+
+            We have not been able to check {{ council.name }}’s website for an
+            e-petition site yet - but this site is brand new and we’re
+            still finishing it.
+
+        </p>
+
+            <p>
+            
+             If you want to help please <a
+            href="http://www.google.co.uk/search?q={{ council.name|urlencode            }}">visit their website</a>, search for an e-petitions page and <a
+            href="{% url core.views.report_error %}?url={{            request.build_absolute_uri|urlencode }}">let us know</a> if you find
+            one.
+
+            </p>
+
         {% endif %}
     
     {% endif %}

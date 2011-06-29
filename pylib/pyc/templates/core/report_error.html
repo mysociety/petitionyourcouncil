@@ -13,8 +13,12 @@
 
     {% else %}
 
+        <p>
+            We’re always grateful when people take the time to tell us about problems on our sites.
+        </p>
+
         {% if url %}
-            <p>We know the address of the <a href="{{ url }}">page that you are reporting</a> the error on so there is no need to put it in the message below.</p>
+            <p>We know the address of the <a href="{{ url }}">page that you are reporting</a> the error on, so there is no need to put it in the message below.</p>
         {% endif %}
         
         <form method="POST" action="{% url core.views.report_error %}?url={{ url|urlencode }}">
@@ -29,7 +33,7 @@
             Your email address:<br>
             <input type="text" name="email" value="{% firstof email '' %}" size="30" />
             <br>
-            <small>Optional - lets us get back to you.</small>
+            <small>Optional - if you want us to get back to you.</small>
 
             <br><br>
 

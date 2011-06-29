@@ -8,8 +8,12 @@ h1, h2, h3, p {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Merriweather", "Arial", sans-serif, serif;
+  text-shadow: 8px 8px 8px #ddd;
   background-color: #99b3cc; }
+
+p {
+  text-align: left; }
 
 #background_map_outer {
   position: fixed;
@@ -149,7 +153,8 @@ body {
   text-align: center; }
 
 ul.recent_petitions {
-  font-size: 80%; }
+  font-size: 80%;
+  text-align: left; }
   ul.recent_petitions li {
     padding: 0.5em 3em;
     list-style: none; }
@@ -159,6 +164,10 @@ ul.recent_petitions {
     background-color: #ddd; }
     ul.recent_petitions li:hover a:hover {
       color: blue; }
+
+ul.search_results li {
+  padding: 0.5em 3em;
+  list-style: none; }
 
 .infoBox {
   background-color: #fff;

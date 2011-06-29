@@ -16,6 +16,8 @@ Email Brunel researcher
 
 --- later ---
 
+Fetch closed petitions from councils as well as the live ones - might need to have more RSS feeds for each council.
+
 Link to petition finder from admin section home page.
 
 List all councils on a page so that search engines can access them.
@@ -36,3 +38,8 @@ gather email addresses of people who want there to be petitions in this council
 so we can inform them when they become available.
 
 Add parliamentary level petitions? eg: http://www.scottish.parliament.uk/s3/committees/petitions/index.htm
+
+combined RSS feed of all petitions sites
+
+scrapers to fetch petitions from sites without feeds
+

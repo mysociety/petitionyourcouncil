@@ -6,21 +6,44 @@
 
 <h2>Councils for '{{ q }}'</h2>
 
+<ul class="search_results">
 {% for council in object_list %}
-    <p>
+    <li>
         <a href="{% url core.views.council slug=council.slug %}">{{ council.name }}</a>
-    </p>
+    </li>
+
 {% empty %}
-    <p>
-        No councils were found for '{{ q }}' - is it a valid postcode or the
-        name of a council?
-    </p>
+    <li>
+        Sorry, we don’t seem to be able to find a council with that name.
+        Please check and try again, or try a postcode.
+    </li>
 {% endfor %}
+</ul>
+
+{% if object_list.count %}
+
+    <p>
+        There is more than one council matching your search term - choose which one
+        you’d like to petition.
+    </p>
+
+    <p>
+        <strong>Hint</strong> - District Councils are generally responsible
+        for local services, including planning, council housing, and rubbish
+        collection. County Councils are generally responsible for local services,
+        including education, social services, transport, roads (except trunk roads
+        and motorways), public rights of way, and libraries. But there are lots of
+        exceptions - if in doubt ask the councils.
+    </p>
+
+{% endif %}
 
 <form action="{% url core.views.search %}">
     <input id="search_query" type="text" name="q" value="{{ q }}" />
     <input type="submit" value="Search again" />
 </form>
+
+
 
 {% endblock %}
 
