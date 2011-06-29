@@ -79,6 +79,7 @@ function PYC () {
         );
         
         this.map.fitBounds( this.map_bounds );
+        this.map.panBy( -document.documentElement.clientWidth * 0.15, 0);
         
         // if there are councils then show them on the map
         for ( var i = 0; i < this.council_ids.length; i++ ) {
