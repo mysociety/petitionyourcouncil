@@ -1,7 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Merriweather:300,regular,700,900);
 body {
-  font-family: "Merriweather", "Arial", sans-serif, serif;
-  text-shadow: 8px 8px 8px #ddd; }
+  font-family: "Merriweather", "Arial", sans-serif, serif; }
 
 .wide_only {
   display: block; }
