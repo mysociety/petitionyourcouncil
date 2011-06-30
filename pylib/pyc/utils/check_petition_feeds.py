@@ -28,9 +28,13 @@ for council in councils_with_rss:
         # pprinter.pprint( rss_entry )
 
         pub_date = dateutil.parser.parse( rss_entry['updated'], fuzzy=True )
+
+        # we need something to act as an identifier, so go through list until we
+        # find one.
+        guid = rss_entry.get('id') or rss_entry.get('link')
             
         petition, created = Petition.objects.get_or_create(
-            guid   = rss_entry['id'],
+            guid   = guid,
             defaults = {
                 'council'     : council,
                 'title'       : rss_entry['title'][:200],
