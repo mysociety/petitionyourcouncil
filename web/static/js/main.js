@@ -18,6 +18,11 @@ function PYC () {
 
     
     this.init = function () {
+        
+        // check that the map is visible before setting it up
+        if( $("#background_map_outer").css('display') == 'none')
+            return;
+        
         this.resize_background_map();
         this.initialize_map();
 

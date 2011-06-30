@@ -1,0 +1,253 @@
+@import "shared.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, p {
+    margin-bottom: 1em;
+}
+
+body {
+    margin:0; 
+    padding:0;
+    font-family: $sans, serif;
+    background-color: $google_maps_water;
+}
+
+p {
+    text-align: left;
+}
+
+#background_map_outer {
+    display: none;
+}
+
+$top_bar_height: 30px;
+
+.wide_only {
+    display: none;
+}
+
+#top_bar {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: $top_bar_height;
+        
+    background-color: #e0e8ef;
+    background-color: rgba( 255,255,255, 0.7);
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+
+    strong {
+        float: left;
+        padding: 4px;
+        font-size: 16px;
+    }
+    
+    #top_bar_menu {
+        float: right;
+        font-size: 12px;
+        padding: 2px;
+        
+        li {
+            padding: 0 0.5em;
+            display: inline;
+            list-style: none;
+            
+            form {
+                display: inline;
+                input {
+                    margin: 1px;
+                }
+            }
+        }
+    }
+    
+    #moresites {
+        padding-right:0;
+        position:relative;
+
+        a {
+            background:url(../bararrow.png) no-repeat right 3px;
+            padding-right:14px;
+        }
+    }
+        
+    #barmenu {
+        width:          20em;
+        background:     white;
+        z-index:        100;
+        position:       absolute;
+        top:            $top_bar_height;
+        right:          0;
+        margin:         0;
+        padding:        0;
+        text-transform: none;
+        border:         solid 1px #a4a4a4;
+        display:        none;
+    
+        li {
+            float:none;
+            margin:0;
+            padding:0;
+            border-left:none;
+            border-top:dotted 1px #a4a4a4;
+                    
+            a {
+                background:none;
+                display:block;
+                padding:0.5em 1em;
+                color:#2c4a9e;
+            }
+            
+            a:hover {
+                background:#E9F3FE;
+            }
+            
+            form {
+                padding:0.5em;
+            
+                input.textbox {
+                    width:17em;
+                    margin-right:0.7em;
+                    margin-left:0.5em;
+                    margin-bottom:0.3em;
+                }
+
+                label {
+                    display:block;
+                    padding-top:0.5em;
+                    padding-left:1em;
+                    color:#333;
+                }        
+            }
+        }
+            
+        li.first {
+            border-top:none;
+        }    
+
+        .menutitle {
+            color:#808080;
+            padding:0.5em 1em;
+            font-weight:bold;
+        }
+        
+        .bardivider {
+            border-top:solid 1px #ccc;
+        }
+        
+        .bordernodivider {
+            border-top:none
+        }
+        
+    }
+}
+
+#social {
+    z-index: 1;
+    position: absolute;
+    top: $top_bar_height;
+    right: 0;
+    
+    div.item {
+        margin: 4px;
+    }
+}
+
+#dev-site-warning {
+    z-index: 1;
+    position: absolute;
+    top: $top_bar_height;
+    left: 0;
+    
+    background: rgba( 255,128,128, 0.7);
+    padding: 2px;
+    
+    p {
+        color: #000;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-size: 75%;
+        font-family: $sans;
+        a { color: inherit; }
+    }
+}
+
+#content {
+    margin:  $top_bar_height auto;
+    width: 100%;
+    background: #f5f7fa;
+    text-align: center;
+}
+
+#content_inner {
+    padding: 1em;
+}
+
+#homepage_search {
+    input {
+        font-size: 150%;
+        text-align: center;
+        margin: 0.25em;
+    }
+}
+
+ul.recent_petitions {
+    font-size: 80%;
+    text-align: left;
+    
+    li {
+        padding: 0.5em 3em;
+        list-style: none;
+        a { color: inherit; }
+    }
+    
+    li:hover {
+        background-color: #ddd;
+        a:hover {
+            color: blue;
+        }
+
+    }
+}
+
+ul.search_results {
+        li {
+        padding: 0 1em 1em;
+        list-style: none;
+    }
+}
+
+.infoBox {
+    background-color: #fff;
+    font-size: 12px;
+    min-width: 200px;
+    padding: 4px;
+    @include roundedCorners( 10px );
+    @include roundedCornersTopLeft( 0px );
+    border: 1px solid #000;
+}
+
+#report_error {
+    margin-top: 1em;
+    font-size: 75%;
+    color: #888;
+    a {
+        color: inherit;
+    }
+}
+

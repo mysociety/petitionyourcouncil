@@ -1,0 +1,24 @@
+$google_maps_water: #99b3cc;
+
+$serif:       "Palatino", "Palatino Linotype", serif;
+$sans:        "Arial", sans-serif;
+$promo_serif: "Goudy Bookletter 1911", Georgia, arial, serif;
+
+@mixin roundedCorners ( $radius ) {
+    -moz-border-radius:    $radius;
+    -webkit-border-radius: $radius;
+    border-radius:         $radius;
+}
+
+@mixin roundedCornersTopLeft ( $radius ) {
+    -moz-border-radius-top-left:    $radius;
+    -webkit-border-radius-top-left: $radius;
+    border-top-left-radius:         $radius;
+}
+
+@mixin boxShadow( $h, $w, $blur, $color ) { 
+    -moz-box-shadow:    $h $w $blur $color; 
+    -webkit-box-shadow: $h $w $blur $color; 
+    box-shadow:         $h $w $blur $color;
+}
+
