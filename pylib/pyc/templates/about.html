@@ -6,6 +6,56 @@
 
 <h1>About this site</h1>
 
-<p>TODO - add text here</p>
+
+<h2>What is this site for?</h2>
+
+<p>It’s to help people find out whether their local council has a web page for people to make or sign web-based petitions, and if so where to find it.</p> 
+
+
+<h2>Why did you build it?</h2>
+
+<p>Although many local councils host e-petitioning platforms, and have spent public money developing them, they can be hard to find. In many cases, the facility is there, but has never been used* - mainly because nobody local knows that it exists.</p>
+
+<p>We believe local petitions are a very good thing. They are one of the means by which citizens can get things changed in a democracy. We also believe strongly in lowering barriers to democratic processes.</p>
+
+<p>Because of this, and because we hate the idea of councils spending money on systems that go unused, we put together what we hope is a simple gateway to online petitions across the UK.</p>
+
+<p>* <small>This <a href="http://davepress.net/2011/03/14/council-e-petitions/">blog post</a> was what first brought us this realisation: you’ll notice our director, Tom, committing to build this website in the <a href="http://davepress.net/2011/03/14/council-e-petitions/comment-page-1/#comment-10968">comments</a>.</small></p>
+
+
+<h2>Who built it?</h2>
+
+<p>We’re <a href="http://www.mysociety.org/">mySociety</a>, a not-for-profit organisation. We make charitable websites that give people easy access to civic and democratic processes, like <a href="http://www.theyworkforyou.com/">TheyWorkForYou</a> and <a href="http://www.fixmystreet.com/">FixMyStreet</a>. We also built the No10 Petitions website, and petitions websites for over 30 councils, acting as a contractor.</p>
+
+
+<h2>Don’t you make money from selling council petition sites?</h2>
+
+<p>Yes we do - or to be more specific, about half of our charity’s income comes from us doing commercial work, such as selling council petition sites. That’s partly why we feel so strongly that they should be used - because we know that public money has gone into building such services, and we’re slightly disappointed to see that so few people ever get to hear about them.</p>
+
+<p>It’s perhaps worth mentioning that because we’re a charity, the money we make from such sales does not get passed on to shareholders in the form of profits. Instead we invest it in making more free websites like this one, and like <a href="http://www.mysociety.org/projects/">these</a>.</p>
+
+
+<h2>What should I do if I find a problem with this site?</h2>
+
+<p>We’d be very grateful if you could take the time to <a href="{% url core.views.report_error %}?url={{ request.build_absolute_uri|urlencode }}">report it</a>. Finding out what doesn’t work - or what frustrates people - helps us to improve our websites.</p>
+
+
+<h2>What technology was the site built in?</h2>
+
+<p>Pixie dust mainly, with some unicorn tears to finish it off.</p>
+
+<p>In reality though it is <a href="https://www.djangoproject.com/">Django</a> (a <a href="http://www.python.org/">Python</a> web framework) with liberal use of <a href="http://jquery.com/">jQuery</a> on the browser. <a href="http://code.google.com/apis/maps/documentation/javascript/">Maps</a> are from Google and postcode lookups are done using <a href="http://mapit.mysociety.org/">MaPit</a>. The code is open source and a vailable on <a href="https://github.com/mysociety/petitionyourcouncil">GitHub</a>.</p>
+
+
+<h2>There are petitions on my council site, but they don’t show up on your site.</h2>
+
+<p>That’s only because your council doesn’t provide them in an <a href="http://en.wikipedia.org/wiki/Rss">RSS feed</a>. But if you visit your council site, you should be able to browse recent petitions (and sign them if they are still open).</p>
+
+
+<h2>What if I want to petition a council that isn’t in the UK?</h2>
+
+<p>This site only covers the UK. However, like all <a href="http://www.mysociety.org/">mySociety</a> projects, it is built in open source, and anyone is welcome to <a href="https://github.com/mysociety/petitionyourcouncil">use it</a> to build similar sites in their own country.</p>
+
+<p>Perhaps more usefully for your needs right now, we suggest you simply visit your local council’s website and search for their online petitions platform. If you can’t find one, we recommend sending them an email or giving them a call to ask why.</p>
 
 {% endblock %}
