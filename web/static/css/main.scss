@@ -61,7 +61,7 @@ $top_bar_height: 30px;
     right: 0;
     width: 100%;
     height: $top_bar_height;
-    
+        
     background-color: #e0e8ef;
     background-color: rgba( 255,255,255, 0.7);
     
@@ -76,13 +76,14 @@ $top_bar_height: 30px;
 
     strong {
         float: left;
-        padding: 2px;
+        padding: 4px;
         font-size: 16px;
     }
     
     ul {
         float: right;
         font-size: 12px;
+        padding: 2px;
         
         li {
             padding: 0 0.5em;

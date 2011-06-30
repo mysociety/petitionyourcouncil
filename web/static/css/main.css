@@ -39,11 +39,12 @@ p {
     text-decoration: underline; }
   #top_bar strong {
     float: left;
-    padding: 2px;
+    padding: 4px;
     font-size: 16px; }
   #top_bar ul {
     float: right;
-    font-size: 12px; }
+    font-size: 12px;
+    padding: 2px; }
     #top_bar ul li {
       padding: 0 0.5em;
       display: inline;
