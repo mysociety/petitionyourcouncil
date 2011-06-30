@@ -151,7 +151,8 @@ p {
 
 #homepage_search input {
   font-size: 150%;
-  text-align: center; }
+  text-align: center;
+  margin: 0.25em; }
 
 ul.recent_petitions {
   font-size: 80%;
