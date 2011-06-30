@@ -184,7 +184,7 @@ $top_bar_height: 30px;
     z-index: 1;
     position: absolute;
     top: $top_bar_height;
-    left: 0;
+    right: 0;
     
     div.item {
         margin: 4px;
@@ -195,7 +195,7 @@ $top_bar_height: 30px;
     z-index: 1;
     position: absolute;
     top: $top_bar_height;
-    right: 0;
+    left: 0;
     
     background: rgba( 255,128,128, 0.7);
     padding: 2px;

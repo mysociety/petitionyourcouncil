@@ -111,7 +111,7 @@ p {
   z-index: 1;
   position: absolute;
   top: 30px;
-  left: 0; }
+  right: 0; }
   #social div.item {
     margin: 4px; }
 
@@ -119,7 +119,7 @@ p {
   z-index: 1;
   position: absolute;
   top: 30px;
-  right: 0;
+  left: 0;
   background: rgba(255, 128, 128, 0.7);
   padding: 2px; }
   #dev-site-warning p {
