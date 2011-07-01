@@ -9,11 +9,10 @@ import pprint
 import dateutil.parser
 import os
 
+sys.path.append('..')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'pyc.settings'
 
 pprinter = pprint.PrettyPrinter(indent=4)
-
-sys.path.append('..')
 
 from pyc import settings
 from pyc.core.models import Council, Petition
