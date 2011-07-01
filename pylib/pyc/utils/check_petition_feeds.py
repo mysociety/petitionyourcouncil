@@ -9,7 +9,7 @@ import pprint
 import dateutil.parser
 import os
 
-sys.path.append('..')
+sys.path.append('../..')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'pyc.settings'
 
 pprinter = pprint.PrettyPrinter(indent=4)

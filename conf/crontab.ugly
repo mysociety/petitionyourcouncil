@@ -6,6 +6,8 @@ MAILTO=cron-!!(*= $site *)!!@mysociety.org
 # cron format
 # minute hour day-of-month  month day-of-week
 
+# set the python path so we don't need to do it in the scripts
+PYTHONPATH=/data/vhost/!!(*= $vhost *)!!/petitionyourcouncil/pylib/
 
 !!(* if ($vhost eq 'www.petitionyourcouncil.com') { *)!!
 
