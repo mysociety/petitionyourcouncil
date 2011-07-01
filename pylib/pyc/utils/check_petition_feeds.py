@@ -16,7 +16,6 @@ from pyc.core.models import Council, Petition
 councils_with_rss = Council.objects.exclude( petition_rss='' )
 
 for council in councils_with_rss:
-    print council.name
 
     logging.debug( "%s (%s)" % (council.name, council.petition_rss) )
 
