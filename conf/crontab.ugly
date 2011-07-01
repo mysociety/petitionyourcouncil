@@ -1,0 +1,17 @@
+# crontab.ugly:
+# Timed tasks for Fleet. Template file.
+
+PATH=/usr/local/bin:/usr/bin:/bin
+MAILTO=cron-!!(*= $site *)!!@mysociety.org
+
+# cron format
+# minute hour day-of-month  month day-of-week
+
+
+!!(* if ($vhost eq 'www.petitionyourcouncil.com') { *)!!
+
+# Check the RSS feeds once a day
+20 4 * * *  !!(*= $user *)!! run-with-lockfile -n /data/vhost/!!(*= $vhost *)!!/check_petition_feeds.lock  '/data/vhost/!!(*= $vhost *)!!/petitionyourcouncil/pylib/pyc/utils/check_petition_feeds.py'  || echo " petitionyourcouncil check_petition_feeds.py stalled?"
+
+!!(* } *)!!
+
