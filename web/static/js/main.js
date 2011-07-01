@@ -91,7 +91,7 @@ function PYC () {
             
             var id = this.council_ids[i];
 
-            var url = 'http://mapit.mysociety.org/area/' + id + '.kml';
+            var url = 'http://mapit.mysociety.org/area/' + id + '.kml?simplify_tolerance=0.001';
 
             var kml = new google.maps.KmlLayer(
                 url,
