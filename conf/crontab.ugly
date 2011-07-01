@@ -1,5 +1,4 @@
 # crontab.ugly:
-# Timed tasks for Fleet. Template file.
 
 PATH=/usr/local/bin:/usr/bin:/bin
 MAILTO=cron-!!(*= $site *)!!@mysociety.org
