@@ -17,6 +17,8 @@
 
 Alias /media /var/lib/python-support/python2.5/django/contrib/admin/media
 Alias /static /data/vhost/example.petitionyourcouncil.mysociety.org/docs/static
+Alias /robots.txt /data/vhost/example.petitionyourcouncil.mysociety.org/docs/robots.txt
+Alias /favicon.ico /data/vhost/example.petitionyourcouncil.mysociety.org/docs/favicon.ico
 
 WSGIDaemonProcess example.petitionyourcouncil.mysociety.org user=exampleuser group=examplegroup processes=5 threads=1 display-name=example.petitionyourcouncil.mysociety.org
 WSGIProcessGroup example.petitionyourcouncil.mysociety.org
