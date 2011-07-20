@@ -107,6 +107,40 @@ def council(request, slug):
     )
 
 
+def out(request, slug, petition_id=None ):
+    """Show results for a single council"""
+
+    try:
+        council = models.Council.objects.get(slug=slug)
+    except models.Council.DoesNotExist:
+        raise http.Http404
+
+    if petition_id:
+        try:
+            petition = council.petition_set.get(id=petition_id)
+        except models.Petition.DoesNotExist:
+            raise http.Http404
+    else:
+        petition = None
+
+    if petition:
+        out_url = petition.url
+    elif council.petition_url:
+        out_url = council.petition_url
+    else:
+        # No URL found - handle this by sending to the council page
+        return redirect( council, slug=slug )
+
+    return render_to_response(
+        'core/out.html',
+        {
+            'council': council,
+            'out_url': out_url,
+        },
+        context_instance=RequestContext(request)
+    )
+
+
 def petition_next (request):
     """Return json of the next petition"""
     last_id = int( request.GET.get('last_id', 0 ) )

@@ -13,6 +13,9 @@ urlpatterns = patterns('pyc.core.views',
     (r'^petition/next.json$',        'petition_next' ),
     (r'^report_error/$',             'report_error' ),
 
+    (r'^out/(?P<slug>.*?)/(?P<petition_id>\d+)/$', 'out' ),
+    (r'^out/(?P<slug>.*?)/$',                      'out' ),
+
 )
 
 urlpatterns += patterns('pyc.core.admin_views',

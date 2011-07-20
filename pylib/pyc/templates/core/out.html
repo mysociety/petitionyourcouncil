@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}Redirecting...</title>
+
+        <noscript>
+            <!-- Redirect non-js browser immediately -->
+            <meta http-equiv="refresh" content="0;url={{ out_url }}">
+        </noscript>
+
+        <!-- load analytics at once -->
+        <script type="text/javascript" src="http://www.google-analytics.com/ga.js" ></script>
+
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(
+              ['_setAccount', '{{ settings.GOOGLE_ANALYTICS_ACCOUNT }}'],
+              ['_trackPageview'],
+              function () {
+                  setTimeout(
+                      function () {
+                         window.location.replace( '{{ out_url }}' );
+                      },
+                      50  // very slight delay so that the tracking gif can be requested
+                  );
+              }
+          );
+
+        </script>
+        
+    </head>
+    <body>
+        
+        <p>Redirecting you to <a href="{{ out_url }}">{{ out_url }}</a></p>
+
+    </body>
+</html>
+
+

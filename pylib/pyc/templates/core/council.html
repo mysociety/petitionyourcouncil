@@ -18,7 +18,7 @@
     
         <h3>Hurrah!</h3>
         
-        <p>{{ council.name }} has an <a href="{{ council.petition_url }}">online petitions site</a>. You can visit it to make a new petition, or sign one created by someone else.</p>
+        <p>{{ council.name }} has an <a href="{% url core.views.out slug=council.slug %}">online petitions site</a>. You can visit it to make a new petition, or sign one created by someone else.</p>
         
         <p>Good luck!</p>
         
@@ -28,7 +28,7 @@
         
         <ul class='recent_petitions'>
             {% for petition in council.petition_set.all %}
-                <li><a href="{{ petition.url }}">{{ petition.title }}</a></li>
+                <li><a href="{% url core.views.out slug=council.slug petition_id=petition.id %}">{{ petition.title }}</a></li>
             {% empty %}
                 <li>No recent petitions found...</li>
             {% endfor %}
