@@ -42,7 +42,21 @@ for council in councils_with_rss:
                 'council'     : council,
                 'title'       : rss_entry['title'][:200],
                 'url'         : rss_entry['link'],
-                'description' : rss_entry['summary'][:2000],
+                'description' : rss_entry['summary'][:1900],  # see note below
                 'pub_date'    : pub_date,
             },
         )
+
+        # Note on the 1900 cap.
+        #
+        # The database field can store 2000 chars, but the encoding is SQL so it is
+        # actually 2000 bytes. Hence any entry containing wide characters that gets
+        # truncated may be 2000 chars, but > 2000 bytes causing the insert query to
+        # fail.
+        #
+        #   django.db.utils.DatabaseError: value too long for type character varying(2000)
+        #
+        # Rather than mess around with the schema to increse the limit (South not 
+        # used in this project), or trim the string to be < 2000 bytes we just trim it
+        # to 1900 chars and hope that will do the trick.
+                
