@@ -14,8 +14,8 @@ body {
   opacity: 0.5;
   z-index: -1; }
 
-#content {
-  margin: 80px auto 0 1em;
+#content, #content_wide {
+  margin: 80px auto 40px 1em;
   width: 30%;
   min-width: 250px;
   background: rgba(255, 255, 255, 0.9);
@@ -25,3 +25,6 @@ body {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px; }
+
+#content_wide {
+  width: 80%; }

@@ -20,6 +20,18 @@ p {
     text-align: left;
 }
 
+table {
+  border-collapse:collapse;
+}
+
+table, th, td {
+  border: 1px solid $google_maps_water;
+}
+
+th, td {
+  padding: 0.25em;
+}
+
 #background_map_outer {
     display: none;
 }
