@@ -40,4 +40,5 @@ if settings.SERVE_STATIC_FILES:
 # static docs that get templated
 urlpatterns += patterns('',
     (r'^about$', direct_to_template, {'template': 'about.html'}),
+    (r'^privacy$', direct_to_template, {'template': 'privacy.html'}),
 )
