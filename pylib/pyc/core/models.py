@@ -131,12 +131,6 @@ class Petition(models.Model):
     
     title       = models.CharField(max_length=200)
     guid        = models.CharField(max_length=200)
-
-    # Needed to up the length of this url field to cope with some council urls. South
-    # has not been used with this project before so this is the SQL that needs to be
-    # manually applied (not worth adding South for this one change):
-    #
-    #   ALTER TABLE core_petition ALTER COLUMN url TYPE VARCHAR(1000);
     url         = models.URLField(unique=True, max_length=1000)
     description = models.CharField(max_length=2000)
 
