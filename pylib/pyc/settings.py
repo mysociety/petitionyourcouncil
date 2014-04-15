@@ -109,10 +109,9 @@ SECRET_KEY = config.get('DJANGO_SECRET_KEY')
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
-    'django.contrib.csrf.middleware.CsrfMiddleware', # FIXME - update from 1.1 style
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    # 'django.contrib.messages.middleware.MessageMiddleware', # FIXME - enable when upgraded from 1.1
+    'django.contrib.messages.middleware.MessageMiddleware',
 )
 
 ROOT_URLCONF = 'pyc.urls'
