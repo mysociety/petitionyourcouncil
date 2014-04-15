@@ -55,12 +55,16 @@ ADMINS = (
 MANAGERS = ADMINS
 
 # TODO - should we use 'django.contrib.gis.db.backends.postgis'?
-DATABASE_ENGINE   = 'postgresql_psycopg2'
-DATABASE_NAME     = config.get('PETITIONYOURCOUNCIL_DB_NAME')
-DATABASE_USER     = config.get('PETITIONYOURCOUNCIL_DB_USER')
-DATABASE_PASSWORD = config.get('PETITIONYOURCOUNCIL_DB_PASS')
-DATABASE_HOST     = config.get('PETITIONYOURCOUNCIL_DB_HOST')
-DATABASE_PORT     = config.get('PETITIONYOURCOUNCIL_DB_PORT')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config.get('PETITIONYOURCOUNCIL_DB_NAME'),
+        'USER': config.get('PETITIONYOURCOUNCIL_DB_USER'),
+        'PASSWORD': config.get('PETITIONYOURCOUNCIL_DB_PASS'),
+        'HOST': config.get('PETITIONYOURCOUNCIL_DB_HOST'),
+        'PORT': config.get('PETITIONYOURCOUNCIL_DB_PORT')
+    }
+}
 
 # use this so that the test database is gis enabled
 TEST_RUNNER='django.contrib.gis.tests.run_tests'
@@ -115,8 +119,8 @@ ROOT_URLCONF = 'pyc.urls'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.load_template_source',
-    'django.template.loaders.app_directories.load_template_source',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.load_template_source',
 )
 
